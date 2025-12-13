@@ -1,0 +1,143 @@
+/* Import Google Fonts - Cinzel and Poppins are used in the original HTML */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+/* --- General Body Styling --- */
+body {
+    /* Background gradient from the original body style */
+    background-image: linear-gradient(45deg, oklch(27.024% 0.00737 285.844), oklch(55.3% 0.013 58.071));
+    /* Border from the original body style */
+    border: 5px oklch(51.1% 0.096 186.391) solid;
+    /* Basic font fallback for safety */
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remove default body margin */
+    padding: 0;
+}
+
+/* --- Header Title Styling --- */
+.header-title {
+    text-align: center;
+    color: oklch(28.2% 0.091 267.935);
+    background-color: oklch(91% 0.096 180.426);
+    font-family: 'Cinzel', serif;
+    font-size: 38px;
+    margin: 20px auto;
+    padding: 10px 30px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+/* --- Logo Image Styling --- */
+.logo-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 5px solid oklch(60.9% 0.126 221.723);
+    display: block;
+    margin: 0 auto 20px auto;
+    box-sizing: border-box;
+}
+
+/* --- Horizontal Rule (Separator) Styling --- */
+.separator {
+    border: 2px oklch(60% 0.118 184.704) solid;
+    width: 90%;
+    margin: 20px auto; /* Add margin for better separation */
+}
+
+/* --- Introduction Heading Styling --- */
+.introduction-heading {
+    text-align: center;
+    color: oklch(29.3% 0.066 243.157);
+    background-color: oklch(95.3% 0.051 180.801);
+    font-family: 'Georgia', serif;
+    font-size: 30px;
+    margin: 20px auto;
+    padding: 10px 30px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+/* --- Welcome Message Styling --- */
+.welcome-message {
+    text-align: center;
+    color: oklch(27.7% 0.046 192.524);
+    background-color: oklch(70.9% 0.01 56.259);
+    font-family: 'Georgia', serif;
+    font-size: 30px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px 30px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+/* --- Main Content/Description Paragraph Styling --- */
+.main-content {
+    color: oklch(27.7% 0.046 192.524);
+    background-color: oklch(70.9% 0.01 56.259);
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    line-height: 1.5; /* Increased line-height for readability */
+    margin: 20px auto;
+    /* Using max-width instead of fixed width and margin-left/right for better responsiveness */
+    max-width: 800px; 
+    padding: 10px 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* --- School Main Image Styling --- */
+.school-main-img {
+    width: 8cm;
+    height: 4.8cm;
+    object-fit: cover;
+    border: 5px solid oklch(50% 0.134 242.749);
+    display: block;
+    margin: 20px auto; /* Centers the block image */
+    float: none; /* Removed float for better center alignment */
+}
+
+/* --- Explore Section Styling --- */
+.explore-section-heading {
+    color: oklch(80.9% 0.105 251.813);
+    background-color: oklch(25.7% 0.09 281.288);
+    font-size: 30px;
+    margin: 20px auto 15px auto;
+    padding: 10px 30px;
+    border-radius: 8px;
+    width: fit-content;
+    font-family: 'Cinzel', serif;
+}
+
+.link-container {
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 20px; /* Add padding at the bottom for spacing */
+}
+
+/* --- Navigation Link Styling --- */
+.nav-link {
+    padding: 12px 25px;
+    border-radius: 8px;
+    background-color: oklch(90% 0.01 220);
+    color: oklch(43.739% 0.07761 221.471);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    display: block; /* Make it block to take up full width for centering */
+    width: fit-content; /* Reset width for centering */
+    margin: 10px auto; /* Add margin for spacing between links */
+    text-decoration: none; /* Remove default underline */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover */
+}
+
+/* Hover effect for links */
+.nav-link:hover {
+    background-color: oklch(80% 0.01 220); /* Slightly darker background on hover */
+    color: oklch(20% 0.07761 221.471); /* Darker text on hover */
+}
+
+/* Override the hr style for the second separator */
+.second-separator {
+    width: 80%;
+}

@@ -1,0 +1,137 @@
+/*
+ * CSS Style Sheet for Home-page.html
+ *
+ * NOTE: To use this file, you must replace the inline 'style="..."' attributes
+ * in your HTML with the corresponding 'class="..."' names defined below.
+ */
+
+/* --- Base Body Styles --- */
+body {
+    /* Linear gradient background and border */
+    background-image: linear-gradient(45deg, oklch(27.024% 0.00737 285.844), oklch(55.3% 0.013 58.071));
+    border: 5px oklch(51.1% 0.096 186.391) solid;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Main Heading (ST.TERESA SCHOOL, BERHAMPORE) --- */
+.main-title {
+    text-align: center;
+    color: oklch(28.2% 0.091 267.935);
+    background-color: oklch(91% 0.096 180.426);
+    font-family: 'Cinzel', serif;
+    font-size: 38px;
+    margin: 20px auto;
+    padding: 10px 30px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+/* --- School Logo Image --- */
+.school-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 5px solid oklch(60.9% 0.126 221.723);
+    display: block;
+    margin: 0 auto 20px auto;
+    box-sizing: border-box;
+}
+
+/* --- Horizontal Rule Separator --- */
+.hr-separator {
+    border: 2px oklch(60% 0.118 184.704) solid;
+    width: 90%;
+}
+
+.hr-separator-narrow {
+    border: 2px oklch(60% 0.118 184.704) solid;
+    width: 80%;
+}
+
+/* --- Introduction Heading --- */
+.introduction-heading {
+    text-align: center;
+    color: oklch(29.3% 0.066 243.157);
+    background-color: oklch(95.3% 0.051 180.801);
+    font-family: 'Georgia', serif;
+    font-size: 30px;
+    margin: 20px auto;
+    padding: 10px 30px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+/* --- Welcome Message --- */
+.welcome-message {
+    text-align: center;
+    color: oklch(27.7% 0.046 192.524);
+    background-color: oklch(70.9% 0.01 56.259);
+    font-family: 'Georgia', serif;
+    font-size: 30px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px 30px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+/* --- Introduction Paragraph --- */
+.introduction-text {
+    text-align: center;
+    color: oklch(27.7% 0.046 192.524);
+    background-color: oklch(70.9% 0.01 56.259);
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    margin: 20px auto;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 10px 30px;
+    border-radius: 8px;
+    line-height: 1.2;
+    width: fit-content;
+}
+
+/* --- Image within Introduction Paragraph --- */
+.intro-image {
+    width: 8cm;
+    height: 4.8cm;
+    object-fit: cover;
+    border: 5px solid oklch(50% 0.134 242.749);
+    display: block;
+    margin: 20px auto;
+    float: center; /* Centering achieved via display: block and margin: auto */
+}
+
+/* --- Explore Heading --- */
+.explore-heading {
+    text-align: center;
+    color: oklch(80.9% 0.105 251.813);
+    background-color: oklch(25.7% 0.09 281.288);
+    font-size: 30px;
+    font-family: 'Cinzel', serif;
+    margin: 20px auto;
+    padding: 10px 30px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+/* --- Navigation Menu Links (styles already in <style> block) --- */
+.navigation-menu {
+    padding: 12px 25px;
+    border-radius: 8px;
+    background-color: oklch(90% 0.01 220);
+    color: oklch(43.739% 0.07761 221.471);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    display: block; /* Important for margin: auto to work */
+    width: fit-content;
+    margin: 10px auto; /* Added margin for separation between links */
+    text-decoration: none; /* Removed default underline */
+}
+
+.navigation-menu:hover {
+    background-color: oklch(75% 0.08 220);
+    color: oklch(20% 0.02 220);
+}
