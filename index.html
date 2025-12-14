@@ -1,101 +1,153 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <title>Home - School Website</title>
+    <!-- Import Google Fonts for specified font-family styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Georgia&family=Poppins:wght@600&display=swap" rel="stylesheet">
     <style>
+        /* High-contrast blue color scheme for navigation links */
         .navigation-menu {
             padding: 12px 25px;
             border-radius: 8px;
-            background-color: oklch(90% 0.01 220);
-            color: oklch(43.739% 0.07761 221.471);
+            /* Light blue background */
+            background-color: #A0D7FF;
+            /* Dark navy text color for contrast */
+            color: #001F3F;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             font-size: 17px;
             display: block;
             width: fit-content;
-            margin: auto;
+            margin: 10px auto; /* Added margin for separation */
             text-decoration: none;
-
+            /* Added a subtle light border to define the button better */
+            border: 1px solid #70a4cc; 
+            transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s; /* Added box-shadow to transition */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
         }
 
         .navigation-menu:hover {
-            background-color: oklch(75% 0.08 220);
-            color: oklch(20% 0.02 220);
+            /* Deeper blue background on hover */
+            background-color: #0069D9; 
+            /* White text on hover for maximum contrast */
+            color: #FFFFFF;
+            transform: translateY(-2px); /* Lift effect on hover */
+            /* Added glowing blue shadow */
+            box-shadow: 
+                0 6px 15px rgba(0, 0, 0, 0.4), /* Standard dark shadow for depth */
+                0 0 20px 5px rgba(0, 105, 217, 0.8); /* Glowing blue shadow */
         }
     </style>
 </head>
 
-
-<body
-    style="background-image: linear-gradient(45deg, oklch(27.024% 0.00737 285.844),oklch(55.3% 0.013 58.071)); border:5px oklch(51.1% 0.096 186.391) solid;">
-    <p style="text-align: center; color:oklch(28.2% 0.091 267.935); background-color:oklch(91% 0.096 180.426);
-            font-family:'Cinzel', serif; 
-            font-size: 38px; 
-            margin:20px auto; 
-            padding: 10px 30px; 
-            border-radius: 8px;
-            width: fit-content;">
+<body style="background-color: #E6F7FF; border: 5px #0056b3 solid; padding-bottom: 50px;">
+    
+    <!-- School Title Header: Added gradient for depth -->
+    <p style="text-align: center; 
+        color: #FFFFFF; /* White text */
+        /* Enhanced: Gradient from a slightly darker blue to the primary blue */
+        background-image: linear-gradient(to bottom, #0056b3, #007BFF); 
+        font-family:'Cinzel', serif; 
+        font-size: 38px; 
+        margin:20px auto; 
+        padding: 15px 35px; /* Increased padding */
+        border-radius: 10px; /* Slightly larger radius */
+        width: fit-content;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);">
         ST.TERESA SCHOOL, BERHAMPORE
     </p>
-    <img src="images/school-logo.jpg" alt="St. Teresa School Logo" style="width: 100px; height: 100px; object-fit: cover; 
-                    border: 5px solid oklch(60.9% 0.126 221.723); display: block; margin: 0 auto 20px auto;
-                    box-sizing: border-box;">
-
-    <hr style="border:2px oklch(60% 0.118 184.704) solid; width:90%;">
-    <p style="text-align: center; color:oklch(29.3% 0.066 243.157); background-color:oklch(95.3% 0.051 180.801);
-            font-family: 'Georgia', serif; 
-            font-size: 30px; 
-            margin:20px auto; 
-            padding: 10px 30px; 
-            border-radius: 8px;
-            width: fit-content;">
-        Introduction:-</p>
-    <p style="text-align: center; color:oklch(27.7% 0.046 192.524); background-color:oklch(70.9% 0.01 56.259);
-            font-family: 'Georgia', serif; 
-            font-size: 30px; 
-            margin: auto;
-            margin-top: 30px;
-            padding: 10px 30px; 
-            border-radius: 8px;
-            width: fit-content;"> Welcome to St Teresa's School, Berhampore</p>
-    <p style="text-align: center; color:oklch(27.7% 0.046 192.524); background-color:oklch(70.9% 0.01 56.259);
-            font-family: 'Georgia', serif; 
-            font-size: 20px; 
-            margin:20px auto;
-            margin-left: 100px; 
-            margin-right: 100px; 
-            padding: 10px 30px; 
-            border-radius: 8px;
-            line-height:1.2;
-            width: fit-content;">St Teresa’s School, Berhampore, is a leading Catholic English Medium Educational
+    
+    <!-- School Logo Image -->
+    <img src="images/school-logo.jpg" alt="St. Teresa School Logo" 
+        style="width: 120px; height: 120px; object-fit: cover; /* Increased size */
+        border: 5px solid #0056b3; /* Darker blue border */
+        display: block; margin: 0 auto 30px auto; /* Increased margin */
+        box-sizing: border-box; border-radius: 50%;"> 
+        
+    <hr style="border:3px #0056b3 solid; width:90%;"> <!-- Slightly thicker HR -->
+    
+    <!-- Introduction Title: Improved background contrast -->
+    <p style="text-align: center; 
+        color: #001F3F; /* Darker Navy text for max contrast */
+        /* Enhanced: More saturated light blue background */
+        background-color: #8DC4FF; 
+        font-family: 'Georgia', serif; 
+        font-size: 30px; 
+        margin:30px auto 20px auto; /* Adjusted top margin */
+        padding: 12px 30px; /* Adjusted padding */
+        border-radius: 8px;
+        width: fit-content;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);">
+        Introduction:-
+    </p>
+    
+    <!-- Welcome Message -->
+    <p style="text-align: center; 
+        color: #003366; /* Darker Blue text */
+        background-color: #CCEEFF; /* Pale Blue background */
+        font-family: 'Georgia', serif; 
+        font-size: 30px; 
+        margin: 20px auto; /* Adjusted margin */
+        padding: 10px 30px; 
+        border-radius: 8px;
+        width: fit-content;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"> Welcome to St Teresa's School, Berhampore</p>
+        
+    <!-- Main Description Block: Added subtle border and increased readability margin -->
+    <p style="text-align: justify; /* Justify text for a more formal look */
+        color: #001F3F; /* Very dark blue/navy text */
+        background-color: #FFFFFF; /* White background for clean readability */
+        font-family: 'Georgia', serif; 
+        font-size: 20px; 
+        margin:20px 80px; /* Increased side margin for better readability on desktop */
+        padding: 25px 35px; /* Increased padding */
+        border-radius: 12px; 
+        line-height:1.7; /* Increased line-height for better flow */
+        border: 1px solid #D0D0D0; /* Subtle border to frame content */
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);">
+        St Teresa’s School, Berhampore, is a leading Catholic English Medium Educational
         Institution dedicated to fostering holistic development
         in boys and girls. Established in 2015, the school is owned and managed by the Teresian Carmelite Sisters (CTC),
         an institute registered
         under the Societies Registration Act XXI of 1860. While established as a minority institution, we proudly
         welcome and admit children irrespective of caste,
-        creed, or background, reflecting our commitment to inclusive education
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWAV89Xa01UAz3bTKxOpY0VmpAc8n23jvIDA&s" alt="St. Teresa School Image" style="width:8cm; height: 4.8cm; object-fit: cover; 
-            border: 5px solid oklch(50% 0.134 242.749); display: block; margin:20px auto;float: center">
+        creed, or background, reflecting our commitment to inclusive education.
+        
+        <!-- School Building Image -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWAV89Xa01UAz3bTKxOpY0VmpAc8n23jvIDA&s" alt="St. Teresa School Image" 
+            style="width: 100%; max-width: 450px; height: auto; /* Increased max width */
+            object-fit: cover; 
+            border: 3px solid #0056b3; /* Dark blue border */
+            display: block; margin:25px auto; /* Adjusted margin */
+            border-radius: 10px;">
     </p>
-    <hr style="border:2px oklch(60% 0.118 184.704) solid; width:80%;">
-    <div style="margin-top: 30px; text-align: center;">
-        <p style="text-align: center; color:oklch(80.9% 0.105 251.813); 
-            background-color:oklch(25.7% 0.09 281.288); font-size: 30px;
-            margin-bottom: 15px;
-            padding: 10px 30px; 
-            border-radius: 8px;
+    
+    <hr style="border:3px #0056b3 solid; width:80%;"> <!-- Slightly thicker HR -->
+    
+    <!-- Explore Section Header -->
+    <div style="margin-top: 40px; text-align: center;">
+        <p style="text-align: center; 
+            color: #FFFFFF; /* White text */
+            background-color: #004080; /* Very Dark Blue */
+            font-size: 30px;
+            margin-bottom: 20px;
+            padding: 12px 40px; /* Increased padding */
+            border-radius: 10px;
             width: fit-content;
             margin:20px auto;
-            font-family: 'Cinzel', serif;">Explore our website:</p>
+            font-family: 'Cinzel', serif;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.35);"> <!-- Stronger Shadow -->
+            Explore our website:
+        </p>
     </div>
-    <div>
+    
+    <!-- Navigation Links -->
+    <div style="text-align: center; margin-bottom: 50px;">
         <a href="about-us.html" class="navigation-menu">About Us</a>
-        <br>
         <a href="department-of-teachers.html" class="navigation-menu">Departments</a>
     </div>
-
-    <br>
-    <br>
 
 </body>
 
