@@ -7,12 +7,14 @@
     <!-- Import Google Fonts for specified font-family styling -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Georgia&family=Poppins:wght@600&display=swap" rel="stylesheet">
     <style>
-        /* High-contrast blue color scheme for navigation links */
+        /* High-contrast blue color scheme for navigation links (Text Box Style) */
         .navigation-menu {
-            padding: 12px 25px;
-            border-radius: 8px;
-            /* Light blue background */
-            background-color: #A0D7FF;
+            padding: 14px 30px; /* Increased padding */
+            border-radius: 10px; /* Increased radius */
+            
+            /* Enhanced Box Background: Subtle gradient for a layered look */
+            background-image: linear-gradient(145deg, #C0E8FF, #A0D7FF);
+            
             /* Dark navy text color for contrast */
             color: #001F3F;
             font-family: 'Poppins', sans-serif;
@@ -22,10 +24,16 @@
             width: fit-content;
             margin: 10px auto; /* Added margin for separation */
             text-decoration: none;
-            /* Added a subtle light border to define the button better */
-            border: 1px solid #70a4cc; 
-            transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s; /* Added box-shadow to transition */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+            
+            /* Stronger Border to define the box clearly */
+            border: 2px solid #0056b3; 
+            transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+            
+            /* Enhanced 3D Box Look: Stronger inner shadows for a structured/3D effect */
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.2), /* Standard bottom shadow for lift */
+                inset 0 1px 3px rgba(255, 255, 255, 0.9), /* Lighter inner shadow for bevel */
+                inset 0 -2px 3px rgba(0, 0, 0, 0.15); /* Darker inner shadow for depth */
         }
 
         .navigation-menu:hover {
@@ -33,11 +41,12 @@
             background-color: #0069D9; 
             /* White text on hover for maximum contrast */
             color: #FFFFFF;
-            transform: translateY(-2px); /* Lift effect on hover */
-            /* Added glowing blue shadow */
+            transform: translateY(-3px); /* Increased lift effect on hover */
+            
+            /* Reintroducing the glowing blue shadow */
             box-shadow: 
-                0 6px 15px rgba(0, 0, 0, 0.4), /* Standard dark shadow for depth */
-                0 0 20px 5px rgba(0, 105, 217, 0.8); /* Glowing blue shadow */
+                0 8px 20px rgba(0, 0, 0, 0.4), /* Standard dark shadow for depth */
+                0 0 25px 8px rgba(0, 105, 217, 0.9); /* Strong Glowing blue shadow */
         }
     </style>
 </head>
@@ -139,7 +148,7 @@
             margin:20px auto;
             font-family: 'Cinzel', serif;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.35);"> <!-- Stronger Shadow -->
-            Explore the website:
+            Explore our website:
         </p>
     </div>
     
