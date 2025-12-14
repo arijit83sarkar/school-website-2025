@@ -1,203 +1,259 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title> About-Us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About St. Teresa's School</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Fonts for Authentic/Academic Style: EB Garamond (Serif), Georgia (for headings) -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['EB Garamond', 'serif'], // Primary body font
+                        serif: ['Georgia', 'serif'],   // Secondary/Header font
+                    },
+                    // Define colors matching the project's existing palette (Deep Blue and Gold)
+                    colors: {
+                        'background-base': '#f0f8ff',      // Very Light Azure/Light Blue base
+                        'primary-dark': '#0A296C',         // Deep Navy Blue (for high contrast text/banners)
+                        'accent-gold': '#DFBD16',          // Distinct Gold/Yellow (for accents)
+                        'box-border-blue': '#22639b',      // Medium Blue for container borders
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Glowing Link Style (Deep Blue glow on light background) */
+        .glowing-link {
+            transition: all 0.3s ease;
+            background-color: #0A296C; /* Deep Navy base color */
+            color: #ffffff;
+            border: 2px solid #DFBD16; /* Gold border */
+            box-shadow: 0 0 10px rgba(10, 41, 108, 0.4); /* Subtle initial navy glow */
+        }
+        .glowing-link:hover {
+            transform: scale(1.05);
+            background-color: #1a4295;
+            /* Stronger deep blue glow on hover */
+            box-shadow: 0 0 20px rgba(10, 41, 108, 0.8), 0 0 30px rgba(10, 41, 108, 0.6);
+        }
+        /* Main Content Container */
+        .main-container {
+            background-color: #ffffff; /* White interior for maximum contrast */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        /* Style for text content boxes (Academic/Formal Look) */
+        .text-box {
+            border-left: 5px solid #DFBD16; /* Gold accent border */
+            background-color: #fcfcfc; /* Very light tint */
+            line-height: 1.75;
+        }
+        /* Anthem Box styling */
+        .anthem-box {
+            border: 2px solid #0A296C;
+            background-color: #e6f0ff; /* Very light blue background */
+            font-family: 'EB Garamond', serif;
+            font-weight: 500;
+        }
+    </style>
 </head>
-<style>
-    .nav-links a {
-        font-size: 22px;
-        font-family: 'Georgia', serif;
-        text-align: left;
-        color: oklch(62.3% 0.214 259.815);
-        background-color: oklch(24.906% 0.04797 102.177);
-        margin-left: 5px;
-        padding: 10px 30px;
-        border-radius: 8px;
-        width: fit-content;
-        text-decoration: none;
-    }
-</style>
+<body class="bg-background-base min-h-screen p-4 sm:p-8 font-sans text-primary-dark">
 
-<body style="background-image: linear-gradient(135deg, #0a296c, #6bd4c3); border:5px oklch(37.1% 0 0) solid;">
+    <!-- Main Content Container with Border and Shadow -->
+    <div class="max-w-4xl mx-auto main-container rounded-xl p-6 md:p-10 border-4 border-box-border-blue">
 
-    <p style="text-align: center; color: oklch(92.5% 0.084 155.995); background-color:oklch(27.7% 0.046 192.524);
-            font-family: 'Georgia', serif; 
-            font-size: 38px; 
-            margin:20px auto; 
-            padding: 10px 30px; 
-            border-radius: 8px;
-            width: fit-content;">
-        <u>About St. Teresa's School</u>
-    </p>
-    <p style="
-            text-align: center; 
-            color: white; 
-            background-color: oklch(28.2% 0.091 267.935); 
-            font-family: 'Georgia', serif; 
-            font-size: 28px; 
-            margin: 25px auto;
-            padding: 10px 40px; 
-            border-radius: 8px;
-            width: fit-content;
-        ">St. Teresa’s School, Berhampore: An Institution of Excellence</p>
-    <p style="color: #150903; font-size: 23px; font-family: 'EB Garamond', serif;text-align:center"><b>Motto: Towards a
-            Life Sublime</b></p>
-    <hr style="border:2px oklch(43.9% 0 0) solid; width:60%;">
-    <p
-        style="color: #000000; font-size: 20px; font-family: 'EB Garamond', serif;text-align:justify;line-height: 1.2;margin-left:3px;margin-right:3px">
-        St. Teresa’s School, Berhampore, is a prestigious Catholic English Medium Educational Institution. 
-        This co-educational establishment, catering to both boys and girls, was founded in 2015. The school is owned and managed by the Teresian Carmelite
-        Sisters. The institution is officially registered under the Societies Registration Act XXI of 1860, bearing Registration No.
-        80 from the year 1975-76, with its central office situated in Asansol, West Bengal. St. Teresa’s School
-        maintains
-        its constitutional status as a minority institution. Crucially, the school strictly adheres to the principle of
-        inclusive admission, extending educational opportunities to children irrespective of their caste, creed, or
-        background.
-        The Teresian Carmelites are working in India and abroad through educational centres, orphanages and other
-        charitable
-        and promotional works.
-    </p>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWAV89Xa01UAz3bTKxOpY0VmpAc8n23jvIDA&s" alt="St. Teresa School Image" style="width:8cm; height: 4.8cm; object-fit: cover; 
-            border: 5px solid oklch(55.3% 0.013 58.071); display: block; margin:20px auto;float: center">
-    <br>
-    <hr style="border:2px oklch(43.9% 0 0) solid; width:90%;">
-    <br>
-    <p style="
-            text-align: center; 
-            color: white; 
-            background-color: oklch(28.2% 0.091 267.935);
-            font-family: 'Georgia', serif; 
-            font-size: 28px; 
-            margin: 25px auto;
-            padding: 10px 40px; 
-            border-radius: 8px;
-            width: fit-content;
-        ">The beginning</p>
-    <p style="color: #150903; font-size: 25px; font-family: 'EB Garamond', serif;text-align: center;">
-        <b> St Teresa of Avila:The teacher of prayer and the Doctor of the Church </b><br>
-    </p>
-    <p
-        style="color: #150903; font-size: 20px; font-family: 'EB Garamond', serif;text-align: justify;margin:5px;line-height: 1.2;">
+        <!-- Main Title (Gold text on Deep Navy Banner) -->
+        <p class="text-center text-4xl sm:text-5xl font-extrabold font-serif text-accent-gold bg-primary-dark py-4 px-6 rounded-lg mb-8 shadow-xl mx-auto w-fit">
+            About St. Teresa's School
+        </p>
 
-        St Teresa of Avila also called St Teresa of Jesus was born at Avila, Spain on 28 March 1515 in a very noble
-        family of knights. As she grew up as a teenager
-        in the boarding school of Augustinian nuns, she had the inspiration to follow the religious life. Overcoming all
-        the objections from her family and friends,
-        she entered the Carmel Convent in 1536. She is known for her teaching and writing. Her main works are
-        Autobiography, Way of Perfection, Interior Castle etc.
-        She is remembered as a woman of iron. With her daringness and profound spirit of true love she established 17
-        convents and 15 monasteries within just 21 years.
-        She was truly a person of prayer and breathed her last in 1582. Forty years after her death in the year 1622 she
-        was canonized and on 27 September 1970
-        she was named a Doctor of the Church by Pope Paul VI.
-    </p>
-    <img src="https://cmsv2-assets.apptegy.net/uploads/23904/file/3418683/0f45294b-70f0-43cc-89a9-957557e28b23.jpeg"
-        alt="St. Teresa School Image" style="width:4.66cm; height: 6cm; object-fit: cover; 
-            border: 5px solid oklch(55.3% 0.013 58.071); display: block; margin: 0 auto 20px auto;
-            box-sizing: border-box;float:center; ">
+        <!-- Subtitle/Motto Container (Dark text on light background) -->
+        <div class="text-center mb-10">
+            <p class="text-2xl sm:text-3xl font-serif text-primary-dark bg-gray-100 py-2 px-6 rounded-lg mx-auto w-fit mb-4 shadow-sm border-b-2 border-accent-gold">
+                St. Teresa’s School, Berhampore: An Institution of Excellence
+            </p>
+            <p class="text-xl text-primary-dark font-bold tracking-wider">
+                Motto: Towards a Life Sublime
+            </p>
+        </div>
 
-    <br>
+        <hr class="border-t border-gray-300 w-4/5 mx-auto mb-8">
 
-    <hr style="border:2px oklch(43.9% 0 0) solid; width:60%;">
-    <p style="color: #150903; font-size: 25px; font-family: 'EB Garamond', serif;text-align: center;">
-        <b> Servant of God Rev Mother Eliswa</b><br>
-    </p>
-    <p
-        style="color: #150903; font-size: 20px; font-family: 'EB Garamond', serif;text-align: justify;margin:5px;line-height: 1.2;">
-        13 February 1866: Rev Mother Eliswa from Verapoly, Kerala, India, founded the religious institute, the
-        Congregation of Teresian Carmelite (CTC).
-        <br>
-        Rev Mother Eliswa, born on 15 October 1831, was the eldest of eight siblings from the wealthy and religious
-        Vypassery Family of Ochanthuruth.
-        She was the first nun from Kerala to establish the first convent in the state. The Congregation, under her, was
-        given the task of teaching girls
-        who had no means to pursue education. Her mission in life was to educate young girls and she set up St Joseph
-        School for them at Varapuzha.
-        Mother Eliswa always meant what she said and did. She was purely motherly especially to the poor. She was a
-        trend setter and she responded whole
-        heartedly to the challenges of her liberative mission. Her daughters follow her mission facing the challenges of
-        times. She breathed her last on
-        18 July 1913 at the Convent near Varapuzha School.
-        <img src="https://ccbi.in/wp-content/uploads/2023/11/MotherEliswa.jpg" alt="Rev Mother Eliswa" style=" object-fit: cover; width:4.5 cm; height: 6cm;
-            border: 5px solid oklch(55.3% 0.013 58.071); display: block; margin: 0 auto 20px auto;
-            box-sizing: border-box;float:center; ">
-    </p>
+        <!-- School Introduction TEXT BOX (Academic Text) -->
+        <div class="text-box rounded-lg p-5 mb-8 shadow-md">
+            <p class="text-lg text-justify">
+                St. Teresa’s School, Berhampore, is a prestigious Catholic English Medium Educational Institution. 
+                This co-educational establishment, catering to both boys and girls, was founded in 2015. The school is owned and managed by the Teresian Carmelite
+                Sisters. The institution is officially registered under the Societies Registration Act XXI of 1860, bearing Registration No.
+                80 from the year 1975-76, with its central office situated in Asansol, West Bengal. St. Teresa’s School maintains
+                its constitutional status as a minority institution. Crucially, the school strictly adheres to the principle of
+                inclusive admission, extending educational opportunities to children irrespective of their caste, creed, or
+                background.
+                The Teresian Carmelites are working in India and abroad through educational centres, orphanages and other
+                charitable and promotional works.
+            </p>
+        </div>
 
-    <hr style="border:2px oklch(43.9% 0 0) solid; width:60%;">
-    <p style="
-            text-align: center; 
-            color: white; 
-            background-color: oklch(28.2% 0.091 267.935); 
-            font-family: 'Georgia', serif; 
-            font-size: 28px; 
-            margin: 25px auto;
-            padding: 10px 40px; 
-            border-radius: 8px;
-            width: fit-content;">
-        SCHOOL ANTHEM
-    </p>
-    <p style="text-align: center; 
-            color: oklch(97.114% 0.06074 110.526);
-            background-color:oklch(55.4% 0.135 66.442);
-            font-family: 'Cormorant Garamond', serif; 
-            font-weight: 700;
-            font-size: 20px; 
-            margin:20px auto; 
-            padding: 10px 30px; 
-            border-radius: 8px;
-            width: fit-content;
-            line-height: 1.2;"> Chorus:
-        St Teresa my Alma Mater<br>
-        A blessed home of mine,<br>
-        My dear school where I grow with time<br>
-        Towards a life sublime.<br>
-        <br>
-        St Teresa of Avila<br>
-        We salute thee our patron<br>
-        “God alone suffices”<br>
-        Lends courage in every girl and boy<br>
-        With determined determination<br>
-        We Teresians stand united<br>
-        In St Teresa’s garden<br>
-        L’le flowers bask in love’s bliss (chorus)<br>
-        <br>
-        Proud in Teresian hues<br>
-        Pick we life’s values,<br>
-        Under the blue sky bright<br>
-        Learn we sins to fight.<br>
-        Your glory we shall sing<br>
-        Through life’s thick and thin,<br>
-        Your flag will fly high<br>
-        In the boundless sky.<br>
-        <br>
-    </p>
-    <hr style="border:2px oklch(43.9% 0 0) solid; width:80%;">
-    <p style="color: #150903; font-size: 25px; font-family: 'EB Garamond', serif;text-align: center;"> Facilities
-        provided in our school:<br></p>
-    <ul style="list-style-type:disc; color:rgb(0, 0, 0);font-size:17px;">
-        <li> Library</li>
-        <li>Chemistry Lab</li>
-        <li>Biology Lab</li>
-        <li> Physics Lab</li>
-        <li>Computer lab </li>
-        <li> Games facilities</li>
-        <li>Sports Room</li>
-    </ul>
-    <hr style="border:2px oklch(43.9% 0 0) solid; width:80%;">
-    </p>
-    <h3
-        style="color: oklch(25.375% 0.14544 279.063); font-size: 18px; font-family: 'EB Garamond', serif;text-align:center">
-        Contact Details:- </h3>
-    <p
-        style="color: oklch(35.911% 0.1235 259.358); font-size: 18px; font-family: 'EB Garamond', serif;text-align:center">
-        Website: https://stteresaberhampore.org/<br>
-        Mobile : +91 99329 74647<br>
-        Email : stspanchanantala24ctc@gmail.com<br>
-        Address: Panchanantala, P.O.- Boaliadanga, P.S.- Berhampore, Dist.- Murshidabad, West Bengal - 742102.
-        <br>
-    </p>
-    <hr style="border:2px oklch(43.9% 0 0) solid; width:80%;"><br>
-    <div class="nav-links"><a href="index.html">Back to Home Page</a></div><br>
+        <!-- School Image -->
+        <div class="flex justify-center mb-10">
+            <img src="https://placehold.co/320x192/0A296C/ffffff?text=School+Building+Placeholder" 
+                onerror="this.onerror=null;this.src='https://placehold.co/320x192/0A296C/ffffff?text=School+Building+Placeholder';"
+                alt="St. Teresa School Image" 
+                class="w-80 h-48 object-cover rounded-xl border-4 border-accent-gold shadow-xl">
+        </div>
+
+        <hr class="border-t border-gray-300 w-11/12 mx-auto mb-8">
+
+        <!-- The Beginning Section Title -->
+        <div class="text-center mb-6">
+            <p class="text-2xl sm:text-3xl font-serif text-primary-dark bg-gray-100 py-2 px-6 rounded-lg mx-auto w-fit shadow-md border-b-2 border-primary-dark">
+                The Beginning
+            </p>
+        </div>
+
+        <!-- St Teresa of Avila Section -->
+        <div class="text-center mb-8">
+            <p class="text-xl sm:text-2xl text-box-border-blue font-bold font-serif mb-4">
+                St Teresa of Avila: The teacher of prayer and the Doctor of the Church
+            </p>
+            <!-- St Teresa of Avila TEXT BOX -->
+            <div class="text-box rounded-lg p-5 shadow-md">
+                <p class="text-lg text-justify">
+                    St Teresa of Avila also called St Teresa of Jesus was born at Avila, Spain on 28 March 1515 in a very noble
+                    family of knights. As she grew up as a teenager in the boarding school of Augustinian nuns, she had the inspiration to follow the religious life. Overcoming all
+                    the objections from her family and friends, she entered the Carmel Convent in 1536. She is known for her teaching and writing. Her main works are
+                    Autobiography, Way of Perfection, Interior Castle etc.
+                    She is remembered as a woman of iron. With her daringness and profound spirit of true love she established 17
+                    convents and 15 monasteries within just 21 years. She was truly a person of prayer and breathed her last in 1582. Forty years after her death in the year 1622 she
+                    was canonized and on 27 September 1970 she was named a Doctor of the Church by Pope Paul VI.
+                </p>
+            </div>
+        </div>
+
+        <!-- St. Teresa of Avila Image -->
+        <div class="flex justify-center mb-10">
+            <img src="https://placehold.co/186x240/0A296C/ffffff?text=St.+Teresa+of+Avila" 
+                onerror="this.onerror=null;this.src='https://placehold.co/186x240/0A296C/ffffff?text=St.+Teresa+of+Avila';"
+                alt="St. Teresa of Avila" 
+                class="w-48 h-64 object-cover rounded-xl border-4 border-accent-gold shadow-xl">
+        </div>
+
+        <hr class="border-t border-gray-300 w-3/5 mx-auto mb-8">
+
+        <!-- Servant of God Rev Mother Eliswa Section -->
+        <div class="text-center mb-8">
+            <p class="text-xl sm:text-2xl text-box-border-blue font-bold font-serif mb-4">
+                Servant of God Rev Mother Eliswa
+            </p>
+            <!-- Rev Mother Eliswa TEXT BOX -->
+            <div class="text-box rounded-lg p-5 shadow-md">
+                <p class="text-lg text-justify">
+                    13 February 1866: Rev Mother Eliswa from Verapoly, Kerala, India, founded the religious institute, the
+                    Congregation of Teresian Carmelite (CTC).
+                    <br><br>
+                    Rev Mother Eliswa, born on 15 October 1831, was the eldest of eight siblings from the wealthy and religious
+                    Vypassery Family of Ochanthuruth. She was the first nun from Kerala to establish the first convent in the state. The Congregation, under her, was
+                    given the task of teaching girls who had no means to pursue education. Her mission in life was to educate young girls and she set up St Joseph
+                    School for them at Varapuzha. Mother Eliswa always meant what she said and did. She was purely motherly especially to the poor. She was a
+                    trend setter and she responded whole heartedly to the challenges of her liberative mission. Her daughters follow her mission facing the challenges of
+                    times. She breathed her last on 18 July 1913 at the Convent near Varapuzha School.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Rev Mother Eliswa Image -->
+        <div class="flex justify-center mb-10">
+            <img src="https://placehold.co/180x240/0A296C/ffffff?text=Mother+Eliswa" 
+                onerror="this.onerror=null;this.src='https://placehold.co/180x240/0A296C/ffffff?text=Mother+Eliswa';"
+                alt="Rev Mother Eliswa" 
+                class="w-44 h-64 object-cover rounded-xl border-4 border-accent-gold shadow-xl">
+        </div>
+
+        <hr class="border-t border-gray-300 w-3/5 mx-auto mb-8">
+
+        <!-- School Anthem Section -->
+        <div class="text-center mb-10">
+            <p class="text-2xl sm:text-3xl font-serif text-primary-dark bg-gray-100 py-2 px-6 rounded-lg mx-auto w-fit mb-6 shadow-md border-b-2 border-primary-dark">
+                SCHOOL ANTHEM
+            </p>
+            <!-- Anthem TEXT BOX (Primary Dark text on a light background) -->
+            <div class="anthem-box text-lg md:text-xl py-4 px-6 rounded-xl mx-auto w-fit max-w-full leading-relaxed shadow-lg">
+                <p class="text-center">
+                    <span class="text-2xl text-accent-gold font-bold font-serif">Chorus:</span><br>
+                    St Teresa my Alma Mater<br>
+                    A blessed home of mine,<br>
+                    My dear school where I grow with time<br>
+                    Towards a life sublime.<br>
+                    <br>
+                    St Teresa of Avila<br>
+                    We salute thee our patron<br>
+                    “God alone suffices”<br>
+                    Lends courage in every girl and boy<br>
+                    With determined determination<br>
+                    We Teresians stand united<br>
+                    In St Teresa’s garden<br>
+                    L’le flowers bask in love’s bliss (chorus)<br>
+                    <br>
+                    Proud in Teresian hues<br>
+                    Pick we life’s values,<br>
+                    Under the blue sky bright<br>
+                    Learn we sins to fight.<br>
+                    Your glory we shall sing<br>
+                    Through life’s thick and thin,<br>
+                    Your flag will fly high<br>
+                    In the boundless sky.
+                </p>
+            </div>
+        </div>
+
+        <hr class="border-t border-gray-300 w-4/5 mx-auto mb-8">
+
+        <!-- Facilities Section -->
+        <div class="text-center mb-8">
+            <p class="text-2xl text-box-border-blue font-bold font-serif mb-4">
+                Facilities provided in our school:
+            </p>
+            <ul class="list-disc list-inside text-lg md:text-xl space-y-1 mx-auto w-fit text-left bg-gray-50 rounded-lg p-4 border border-gray-200 shadow-sm font-sans">
+                <li>Library</li>
+                <li>Chemistry Lab</li>
+                <li>Biology Lab</li>
+                <li>Physics Lab</li>
+                <li>Computer lab</li>
+                <li>Games facilities</li>
+                <li>Sports Room</li>
+            </ul>
+        </div>
+
+        <hr class="border-t border-gray-300 w-4/5 mx-auto mb-8">
+
+        <!-- Contact Details -->
+        <div class="text-center pb-4">
+            <h3 class="text-2xl font-serif text-accent-gold font-bold mb-3">
+                Contact Details:
+            </h3>
+            <p class="text-lg font-sans space-y-1">
+                Website: <a href="https://stteresaberhampore.org/" class="text-box-border-blue hover:text-accent-gold transition duration-150">https://stteresaberhampore.org/</a><br>
+                Mobile : +91 99329 74647<br>
+                Email : <a href="mailto:stspanchanantala24ctc@gmail.com" class="text-box-border-blue hover:text-accent-gold transition duration-150">stspanchanantala24ctc@gmail.com</a><br>
+                Address: Panchanantala, P.O.- Boaliadanga, P.S.- Berhampore, Dist.- Murshidabad, West Bengal - 742102.
+            </p>
+        </div>
+
+        <hr class="border-t border-gray-300 w-4/5 mx-auto mb-6">
+
+        <!-- Navigation Link (Glowing Hyperlink) -->
+        <div class="flex justify-center">
+            <a href="index.html" class="glowing-link inline-block text-xl font-serif py-3 px-8 rounded-xl shadow-lg font-semibold">
+                Back to Home Page
+            </a>
+        </div>
+    </div>
 </body>
-
 </html>
