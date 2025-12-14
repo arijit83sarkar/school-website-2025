@@ -1,285 +1,259 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Department-of-teachers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Teachers</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter and Cormorant Garamond for a modern yet authentic look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Define custom font families for Tailwind usage */
+        html {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-serif-cormorant {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* --- Custom CSS for the Glowing Navigation Button --- */
+        .nav-button {
+            /* Base style: 3D box structure */
+            padding: 14px 30px;
+            border-radius: 10px;
+            /* Light Blue Gradient for base look */
+            background-image: linear-gradient(145deg, #C0E8FF, #A0D7FF); 
+            color: #001F3F; /* Dark Navy Text */
+            font-weight: 600;
+            text-decoration: none;
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            border: 2px solid #0056b3; 
+            transition: all 0.3s ease-in-out;
+            /* Enhanced 3D Box Look */
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.2), 
+                inset 0 1px 3px rgba(255, 255, 255, 0.9),
+                inset 0 -2px 3px rgba(0, 0, 0, 0.15); 
+        }
+
+        .nav-button:hover {
+            /* Hover style: Dark background + Glow */
+            background-color: #004D99; /* Dark Blue */
+            color: #FFFFFF;
+            transform: translateY(-3px); /* Lift */
+            /* Strong Blue Glow (0, 105, 217 is a vibrant blue RGB) */
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.4), 
+                0 0 25px 8px rgba(0, 105, 217, 0.9); 
+        }
+
+        /* Table alternating rows - Enhanced Contrast */
+        .table-row-odd {
+            background-color: #FFFFFF; /* Pure white for high contrast */
+        }
+        .table-row-even {
+            background-color: #E6F0F8; /* Stronger light blue for better differentiation */
+        }
+    </style>
 </head>
 
-<body style="background-image: linear-gradient(135deg, oklch(38.6% 0.063 188.416), oklch(92.4% 0.12 95.746));
-     border:5px #22639b solid; font-family: 'Merriweather', serif;">
-    <p style="text-align: center; 
-            color: oklch(95% 0.05 180); 
-            background-color: oklch(25.8% 0.092 26.042); 
-            font-family: 'Cormorant Garamond', serif; 
-            font-weight: 700;
-            font-size: 38px; 
-            margin:20px auto; 
-            padding: 10px 30px; 
-            border-radius: 8px;
-            width: fit-content;">
-        Departments:-
-    </p>
-    <p
-        style="text-align:center;color:oklch(27.8% 0.033 256.848);font-family:'Cormorant Garamond', serif;font-size:25px">
-        Principal of our school:-<br> Sister Jessy
-    </p>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIuc0NlzNeHneKWq4wk42LqLZwVnPYCNo7RA&s"
-        alt="Pricipal of our school image" style="width: 5.25 cm; height: 6cm; object-fit: cover; 
-             border: 5px solid oklch(39.776% 0.00944 61.105); display: block; margin: auto;
-             border-radius: 8px;">
+<body class="bg-blue-50 min-h-screen p-4 sm:p-8">
+    
+    <!-- Main Content Container with Border -->
+    <div class="max-w-6xl mx-auto border-4 border-blue-800 bg-white shadow-2xl rounded-xl p-4 sm:p-8">
+        
+        <!-- Department Header (High Contrast Title) -->
+        <header class="text-center mb-10">
+            <h1 class="inline-block px-8 py-3 bg-slate-800 text-white font-serif-cormorant font-bold text-3xl sm:text-4xl rounded-lg shadow-xl">
+                Departments & Staff
+            </h1>
+        </header>
 
-    <hr style="border:2px oklch(47.3% 0.137 46.201) ;border-style:double; width:90%;">
-    <hr style="border:2px oklch(47.3% 0.137 46.201) ;border-style:double; width:80%;">
-    <p style="
-            text-align: center; 
-            color: oklch(95.3% 0.051 180.801); 
-            background-color: oklch(39.1% 0.09 240.876); 
-            font-family: 'Georgia', serif; 
-            font-size: 28px; 
-            margin: 25px auto;
-            padding: 10px 40px; 
-            border-radius: 8px;
-            width: fit-content;">Major-Subjects</p>
+        <!-- Principal Section -->
+        <section class="text-center my-8 p-6 bg-blue-50 rounded-xl shadow-lg border border-blue-200">
+            <h2 class="text-2xl sm:text-3xl font-serif-cormorant text-blue-900 mb-4">
+                Principal of our school: Sister Jessy
+            </h2>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIuc0NlzNeHneKWq4wk42LqLZwVnPYCNo7RA&s"
+                alt="Principal of our school image" 
+                class="w-32 h-40 object-cover border-4 border-yellow-700 rounded-lg mx-auto shadow-md"
+            >
+        </section>
 
-    <table style="
-            width: 85%; 
-            margin-left: auto; 
-            margin-right: auto; 
-            border: 4px solid oklch(26.705% 0.17372 266.147); 
-            border-spacing:6px;
-            background-color: oklch(90.1% 0.076 70.697); 
-            font-family:'Merriweather', serif; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            size:18px">
+        <hr class="border-t-4 border-double border-yellow-700 w-11/12 mx-auto my-8">
 
-        <tr style="background-color: oklch(40% 0.09 250); color: white;text-align:center">
+        <!-- Title for Major Subjects (Enhanced Contrast: Blue-800) -->
+        <div class="text-center my-6">
+            <p class="inline-block px-8 py-2 bg-blue-800 text-white font-serif text-2xl sm:text-3xl rounded-lg shadow-md">
+                Major Subjects
+            </p>
+        </div>
 
-            <th style="border: 2px solid oklch(26.705% 0.17372 266.147); width:10cm; padding: 15px; text-align: center;
-                font-size: 28px; font-weight: 600;">Subjects/Departments</th>
-            <th
-                style="border: 2px solid oklch(26.705% 0.17372 266.147); padding: 15px; text-align: center; font-size: 28px; font-weight: 600;">
-                Teachers</th>
-        </tr>
+        <!-- Major Subjects Table -->
+        <div class="overflow-x-auto mb-12">
+            <table class="w-full text-sm sm:text-base border-4 border-blue-900 bg-white rounded-lg shadow-xl text-left table-auto">
+                <thead>
+                    <tr class="bg-blue-700 text-white text-center">
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-1/3">Subjects/Departments</th>
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-2/3">Teachers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Computer</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Soumyajeet Sarkar, Souma Ghosh</td>
+                    </tr>
+                    <tr class="table-row-even hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Mathematics</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Bishal Saha, Sneha Manek</td>
+                    </tr>
+                    <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Physics</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Bishal Saha, Sneha Manek</td>
+                    </tr>
+                    <tr class="table-row-even hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Chemistry</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Soumyajeet Sarkar</td>
+                    </tr>
+                    <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Biology</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Pijush Mazumdar, Rokeya Khatun</td>
+                    </tr>
+                    <tr class="table-row-even hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Geography</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Amily Ghosh, Ishika Mallick</td>
+                    </tr>
+                    <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">History & Civics</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Vibha Das, Sister Jessy</td>
+                    </tr>
+                    <tr class="table-row-even hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">English Language</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Soumi Nath, Madhurima Saha</td>
+                    </tr>
+                    <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">English Literature</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Soumi Nath, Madhurima Saha</td>
+                    </tr>
+                    <tr class="table-row-even hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">2nd Language</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Shreya Chandra (Bengali), Amrita Tirkey (Hindi)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <tr style="background-color: oklch(76.226% 0.11176 162.078);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                Computer</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Soumyajeet Sarkar,
-                Souma Ghosh</td>
-        </tr>
-        <tr style="background-color: oklch(95.3% 0.051 180.801);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                Mathematics</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Bishal Saha, Sneha
-                Manek</td>
-        </tr>
-        <tr style="background-color: oklch(76.226% 0.11176 162.078);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                Physics</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Bishal Saha, Sneha
-                Manek</td>
-        </tr>
-        <tr style="background-color: oklch(95.3% 0.051 180.801);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                Chemistry</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Soumyajeet Sarkar</td>
-        </tr>
-        <tr style="background-color: oklch(76.226% 0.11176 162.078);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                Biology</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Pijush Mazumdar,Rokeya
-                Khatun</td>
-        </tr>
-        <tr style="background-color: oklch(95.3% 0.051 180.801);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                Geography</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Amily Ghosh,Ishika
-                Mallick</td>
-        </tr>
-        <tr style="background-color: oklch(76.226% 0.11176 162.078);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                History & Civics</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Vibha Das, Sister Jessy
-            </td>
-        </tr>
-        <tr style="background-color: oklch(95.3% 0.051 180.801);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                English Language</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Soumi Nath,Madhurima
-                Saha</td>
-        </tr>
-        <tr style="background-color: oklch(76.226% 0.11176 162.078);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                English Literature</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Soumi Nath,Madhurima
-                Saha</td>
-        </tr>
-        <tr style="background-color: oklch(95.3% 0.051 180.801);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">2nd
-                Language</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Shreya
-                Chandra(Bengali),Amrita Tirkey(Hindi)</td>
-        </tr>
-    </table>
-    <br>
-    <hr style="border:2px oklch(47.3% 0.137 46.201) ;border-style:double; width:80%;">
-    <hr style="border:2px oklch(47.3% 0.137 46.201) ;border-style:double; width:90%;">
-    <p style="
-            text-align: center; 
-            color: oklch(95.3% 0.051 180.801); 
-            background-color: oklch(39.1% 0.09 240.876); 
-            font-family: 'Georgia', serif; 
-            font-size: 28px; 
-            margin: 25px auto;
-            padding: 10px 40px; 
-            border-radius: 8px;
-            width: fit-content;">Minor-Subjects</p>
-    <table style="
-            width: 85%; 
-            margin-left: auto; 
-            margin-right: auto; 
-            border: 4px solid oklch(26.705% 0.17372 266.147); 
-            border-spacing:6px;
-            background-color: oklch(90.1% 0.076 70.697); 
-            font-family:'Merriweather', serif; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            size:18px">
-        <tr style="background-color: oklch(40% 0.09 250); color: white;text-align:center">
+        <hr class="border-t-4 border-double border-yellow-700 w-11/12 mx-auto my-8">
 
-            <th
-                style="border: 2px solid oklch(26.705% 0.17372 266.147); width:10cm; padding: 15px; text-align: center; font-size: 28px; font-weight: 600;">
-                Subjects/Departments</th>
-            <th
-                style="border: 2px solid oklch(26.705% 0.17372 266.147); padding: 15px; text-align: center; font-size: 28px; font-weight: 600;">
-                Teachers</th>
-        </tr>
+        <!-- Title for Minor Subjects (Enhanced Contrast: Blue-800) -->
+        <div class="text-center my-6">
+            <p class="inline-block px-8 py-2 bg-blue-800 text-white font-serif text-2xl sm:text-3xl rounded-lg shadow-md">
+                Minor Subjects
+            </p>
+        </div>
 
-        <tr style="background-color:oklch(76.226% 0.11176 162.078);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">3rd
-                Language</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Amrita
-                Tirkey(Hindi),Sumanta Banerje(bengali)</td>
-        </tr>
-        <tr style="background-color: oklch(95.3% 0.051 180.801);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                General Knowledge</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Soumi Nath,Bishal Saha
-            </td>
-        </tr>
-        <tr style="background-color: oklch(76.226% 0.11176 162.078);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">Moral
-                Science</th>
-            <td style="border: 2px solid #ddd; padding: 12px; text-align: left; color: #333;">Sister Jessy</td>
-    </table>
-    <br>
-    <hr style="border:2px oklch(47.3% 0.137 46.201) ;border-style:double; width:80%;">
-    <hr style="border:2px oklch(47.3% 0.137 46.201) ;border-style:double; width:90%;">
-    <p style="
-            text-align: center; 
-            color: oklch(95.3% 0.051 180.801); 
-            background-color: oklch(39.1% 0.09 240.876); 
-            font-family: 'Georgia', serif; 
-            font-size: 28px; 
-            margin: 25px auto;
-            padding: 10px 40px; 
-            border-radius: 8px;
-            width: fit-content;">Extra-curricular Activities</p>
-    <table style="
-            width: 85%; 
-            margin-left: auto; 
-            margin-right: auto; 
-            border: 4px solid oklch(26.705% 0.17372 266.147); 
-            border-spacing:6px;
-            background-color: oklch(90.1% 0.076 70.697); 
-            font-family:'Merriweather', serif; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            size:18px">
-        <tr style="background-color: oklch(40% 0.09 250); color: white;text-align:center">
+        <!-- Minor Subjects Table -->
+        <div class="overflow-x-auto mb-12">
+            <table class="w-full text-sm sm:text-base border-4 border-blue-900 bg-white rounded-lg shadow-xl text-left table-auto">
+                <thead>
+                    <tr class="bg-blue-700 text-white text-center">
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-1/3">Subjects/Departments</th>
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-2/3">Teachers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">3rd Language</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Amrita Tirkey (Hindi), Sumanta Banerje (Bengali)</td>
+                    </tr>
+                    <tr class="table-row-even hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">General Knowledge</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Soumi Nath, Bishal Saha</td>
+                    </tr>
+                    <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Moral Science</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Sister Jessy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <th
-                style="border: 2px solid oklch(26.705% 0.17372 266.147); width:10cm; padding: 15px; text-align: center; font-size: 28px; font-weight: 600;">
-                Subjects/Departments</th>
-            <th
-                style="border: 2px solid oklch(26.705% 0.17372 266.147); padding: 15px; text-align: center; font-size: 28px; font-weight: 600;">
-                Teachers</th>
-        </tr>
-        </tr>
-        <tr style="background-color:oklch(76.226% 0.11176 162.078);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">SUPW
-                (Socially Useful Productive Work)</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Sanimesh Baskey</td>
-        </tr>
-        <tr style="background-color: oklch(95.3% 0.051 180.801);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                Physical Education</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Prakash Hembrom</td>
-        </tr>
-        <tr style="background-color: oklch(76.226% 0.11176 162.078);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">Music
-            </th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;">Debosmita Das</td>
-        </tr>
-        <tr style="background-color: oklch(95.3% 0.051 180.801);">
-            <th style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                Karate</th>
-            <td style="border: 2px solid #000000; padding: 12px; text-align: left; color: #333;"> Saikat Das</td>
-        </tr>
-    </table>
-    <br>
-    <hr style="border:2px oklch(47.3% 0.137 46.201) ;border-style:double; width:80%;">
-    <hr style="border:2px oklch(47.3% 0.137 46.201) ;border-style:double; width:90%;">
-    <p style="
-            text-align: center; 
-            color: oklch(95.3% 0.051 180.801); 
-            background-color: oklch(39.1% 0.09 240.876); 
-            font-family: 'Georgia', serif; 
-            font-size: 28px; 
-            margin: 25px auto;
-            padding: 10px 40px; 
-            border-radius: 8px;
-            width: fit-content;">Office-staff</p>
-    <table style="
-            width: 85%; 
-            margin-left: auto; 
-            margin-right: auto; 
-            border: 4px solid oklch(26.705% 0.17372 266.147); 
-            border-spacing:6px;
-            background-color: oklch(90.1% 0.076 70.697); 
-            font-family:'Merriweather', serif; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            size:18px">
-        <tr style="background-color: oklch(40% 0.09 250); color: white;text-align:center">
+        <hr class="border-t-4 border-double border-yellow-700 w-11/12 mx-auto my-8">
 
-            <th
-                style="border: 2px solid oklch(26.705% 0.17372 266.147); width:10cm; padding: 15px; text-align: center; font-size: 28px; font-weight: 600;">
-                Subjects/Departments</th>
-            <th
-                style="border: 2px solid oklch(26.705% 0.17372 266.147); padding: 15px; text-align: center; font-size: 28px; font-weight: 600;">
-                Teachers</th>
-        </tr>
-        <tr style="background-color:oklch(76.226% 0.11176 162.078);">
-            <th style="border: 2px solid #140c0c; padding: 12px; text-align: left; color: #333; font-weight: 600;">
-                Office-staff</th>
-            <td style="border: 2px solid #090404; padding: 12px; text-align: left; color: #333;">Julias Hasda,Satabdi
-                Roy</td>
-        </tr>
-    </table>
+        <!-- Title for Extra-curricular (Enhanced Contrast: Blue-800) -->
+        <div class="text-center my-6">
+            <p class="inline-block px-8 py-2 bg-blue-800 text-white font-serif text-2xl sm:text-3xl rounded-lg shadow-md">
+                Extra-curricular Activities
+            </p>
+        </div>
 
-    <br>
+        <!-- Extra-curricular Activities Table -->
+        <div class="overflow-x-auto mb-12">
+            <table class="w-full text-sm sm:text-base border-4 border-blue-900 bg-white rounded-lg shadow-xl text-left table-auto">
+                <thead>
+                    <tr class="bg-blue-700 text-white text-center">
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-1/3">Activity/Department</th>
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-2/3">Teachers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">SUPW (Socially Useful Productive Work)</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Sanimesh Baskey</td>
+                    </tr>
+                    <tr class="table-row-even hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Physical Education</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Prakash Hembrom</td>
+                    </tr>
+                    <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Music</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Debosmita Das</td>
+                    </tr>
+                    <tr class="table-row-even hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Karate</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Saikat Das</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <hr class="border-t-4 border-double border-yellow-700 w-11/12 mx-auto my-8">
 
+        <!-- Title for Office Staff (Enhanced Contrast: Blue-800) -->
+        <div class="text-center my-6">
+            <p class="inline-block px-8 py-2 bg-blue-800 text-white font-serif text-2xl sm:text-3xl rounded-lg shadow-md">
+                Office Staff
+            </p>
+        </div>
 
-    <a href="index.html" style=" 
-            padding: 10px 20px; 
-            background-color: oklch(40% 0.09 250); 
-            color: white; 
-            border-radius: 5px; 
-            font-family: 'Merriweather', serif; 
-            display: block; 
-            width: fit-content;
-            margin: auto;
-            font-size: 20px;
-            text-decoration: none;">
-        Back to the home page
-    </a>
-    <br>
+        <!-- Office Staff Table -->
+        <div class="overflow-x-auto mb-12">
+            <table class="w-full text-sm sm:text-base border-4 border-blue-900 bg-white rounded-lg shadow-xl text-left table-auto">
+                <thead>
+                    <tr class="bg-blue-700 text-white text-center">
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-1/3">Role</th>
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-2/3">Staff Members</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
+                        <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Office-staff</th>
+                        <td class="p-3 border border-gray-400 text-left text-gray-700">Julias Hasda, Satabdi Roy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Back to Home Link with Glowing Button Style -->
+        <a href="index.html" class="nav-button text-2xl">
+            Back to the home page
+        </a>
+
+    </div>
 </body>
 </html>
