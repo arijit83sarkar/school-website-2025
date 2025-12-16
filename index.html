@@ -3,119 +3,231 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Home - School Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - St. Teresa's School Website</title>
     <!-- Import Google Fonts for specified font-family styling -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Georgia&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    
     <style>
-        /* High-contrast blue color scheme for navigation links (Text Box Style) */
+        /* --- 1. KEYFRAMES FOR ADVANCED HUE ANIMATION --- */
+        /* Creates a slow, subtle color shift across the page elements */
+        @keyframes subtleHueShift {
+            0% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(5deg); }
+            100% { filter: hue-rotate(0deg); }
+        }
+
+        /* --- 2. BASE STYLING & ANIMATION APPLICATION --- */
+        body {
+            background-color: #E6F7FF; /* Pale Blue background */
+            border: 5px solid #0056b3;
+            padding-bottom: 50px;
+            /* Applying subtle hue shift to the entire body contents/border */
+            animation: subtleHueShift 15s ease-in-out infinite; 
+            box-shadow: 0 0 40px rgba(0, 86, 179, 0.3); /* Subtle outer glow */
+        }
+        
+        /* --- 3. SCHOOL TITLE STYLING --- */
+        .school-title {
+            text-align: center;
+            color: #FFFFFF; 
+            background-image: linear-gradient(to bottom, #0056b3, #007BFF); 
+            font-family:'Cinzel', serif; 
+            font-size: 38px; 
+            margin:20px auto; 
+            padding: 15px 35px;
+            border-radius: 10px; 
+            width: fit-content;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            cursor: default;
+            transition: transform 0.3s, box-shadow 0.3s, filter 0.3s; /* Added filter */
+        }
+
+        /* Title Hover Effect (Advanced Text Shadow/3D effect) */
+        .school-title:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), /* White glow */
+                        0 8px 25px rgba(0, 0, 0, 0.5); /* Deep shadow */
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.7), /* Inner text glow */
+                         -1px -1px 5px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.1); /* Slight brightness boost on hover */
+        }
+        
+        /* --- 4. SECTION HEADING BASE STYLES (New) --- */
+        .section-title {
+            text-align: center; 
+            font-family: 'Georgia', serif; 
+            margin: 20px auto; 
+            padding: 12px 30px; 
+            border-radius: 8px;
+            width: fit-content;
+            cursor: default;
+            /* Added transition for all interactive effects */
+            transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+        }
+
+        /* Section Heading Hover Effects (Applied to all headings) */
+        .section-title:hover {
+            transform: scale(1.03) translateY(-2px); /* Lift and scale slightly */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35); /* Prominent shadow */
+            filter: saturate(1.2) brightness(1.1); /* Enhance color and brightness */
+        }
+
+        /* Specific style for Introduction Header (Maintaining dark text contrast) */
+        .introduction-title {
+            color: #001F3F; 
+            background-color: #8DC4FF; 
+            font-size: 30px; 
+            margin-top: 30px; /* Specific margin adjustment */
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Specific style for Welcome Message (Maintaining dark text contrast) */
+        .welcome-message {
+            color: #003366;
+            background-color: #CCEEFF; 
+            font-size: 30px; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Specific style for Explore Header (Maintaining white text contrast) */
+        .explore-header {
+            color: #FFFFFF; 
+            background-color: #004080; 
+            font-size: 30px;
+            font-family: 'Cinzel', serif;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.35);
+        }
+
+        /* --- 5. NAVIGATION MENU STYLES (Existing) --- */
         .navigation-menu {
-            padding: 14px 30px; /* Increased padding */
-            border-radius: 10px; /* Increased radius */
-            
-            /* Enhanced Box Background: Subtle gradient for a layered look */
+            padding: 14px 30px; 
+            border-radius: 10px; 
             background-image: linear-gradient(145deg, #C0E8FF, #A0D7FF);
-            
-            /* Dark navy text color for contrast */
-            color: #001F3F;
+            color: #001F3F; 
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             font-size: 17px;
             display: block;
             width: fit-content;
-            margin: 10px auto; /* Added margin for separation */
+            margin: 15px auto;
             text-decoration: none;
-            
-            /* Stronger Border to define the box clearly */
             border: 2px solid #0056b3; 
             transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
-            
-            /* Enhanced 3D Box Look: Stronger inner shadows for a structured/3D effect */
             box-shadow: 
-                0 4px 8px rgba(0, 0, 0, 0.2), /* Standard bottom shadow for lift */
-                inset 0 1px 3px rgba(255, 255, 255, 0.9), /* Lighter inner shadow for bevel */
-                inset 0 -2px 3px rgba(0, 0, 0, 0.15); /* Darker inner shadow for depth */
+                0 4px 8px rgba(0, 0, 0, 0.2), 
+                inset 0 1px 3px rgba(255, 255, 255, 0.9), 
+                inset 0 -2px 3px rgba(0, 0, 0, 0.15); 
         }
 
         .navigation-menu:hover {
-            /* Deeper blue background on hover */
             background-color: #0069D9; 
-            /* White text on hover for maximum contrast */
             color: #FFFFFF;
-            transform: translateY(-3px); /* Increased lift effect on hover */
-            
-            /* Reintroducing the glowing blue shadow */
+            transform: translateY(-3px); 
             box-shadow: 
-                0 8px 20px rgba(0, 0, 0, 0.4), /* Standard dark shadow for depth */
-                0 0 25px 8px rgba(0, 105, 217, 0.9); /* Strong Glowing blue shadow */
+                0 8px 20px rgba(0, 0, 0, 0.4), 
+                0 0 25px 8px rgba(0, 105, 217, 0.9); 
+        }
+
+        /* --- 6. LOGO INTERACTIVITY STYLES (ENHANCED) --- */
+        .interactive-logo {
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, border-color 0.3s ease, filter 0.4s;
+        }
+
+        .interactive-logo:hover {
+            transform: scale(1.1) rotate(5deg); /* More dramatic scale/rotation */
+            border-color: #007BFF;
+            filter: drop-shadow(0 0 10px #007BFF) brightness(1.1); /* Glow effect on the logo */
+        }
+
+        /* Class for the main descriptive text block (Existing) */
+        .description-block {
+            text-align: justify;
+            color: #001F3F; 
+            background-color: #FFFFFF; 
+            font-family: 'Georgia', serif;
+            font-size: 20px;
+            margin: 20px 80px; 
+            padding: 25px 35px;
+            border-radius: 12px;
+            line-height: 1.7;
+            border: 1px solid #D0D0D0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style for the hidden quote box (Existing) */
+        #quoteBox {
+            max-width: 600px;
+            margin: 15px auto 30px auto;
+            padding: 20px;
+            background-color: #FFFBEA; 
+            border: 2px solid #DFBD16; 
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Georgia', serif;
+            color: #001F3F;
+            font-style: italic;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        #quoteBox.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive adjustments (Existing) */
+        @media (max-width: 768px) {
+            .description-block {
+                margin: 20px 20px;
+                padding: 15px 20px;
+            }
+            p {
+                font-size: 18px !important;
+            }
+            .school-title, .section-title {
+                font-size: 28px;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 
-<body style="background-color: #E6F7FF; border: 5px #0056b3 solid; padding-bottom: 50px;">
+<body>
     
-    <!-- School Title Header: Added gradient for depth -->
-    <p style="text-align: center; 
-        color: #FFFFFF; /* White text */
-        /* Enhanced: Gradient from a slightly darker blue to the primary blue */
-        background-image: linear-gradient(to bottom, #0056b3, #007BFF); 
-        font-family:'Cinzel', serif; 
-        font-size: 38px; 
-        margin:20px auto; 
-        padding: 15px 35px; /* Increased padding */
-        border-radius: 10px; /* Slightly larger radius */
-        width: fit-content;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);">
+    <!-- School Title Header: NOW USING CLASS and has a hover effect -->
+    <p class="school-title">
         ST.TERESA SCHOOL, BERHAMPORE
     </p>
     
-    <!-- School Logo Image -->
-    <img src="images/school-logo.jpg" alt="St. Teresa School Logo" 
-        style="width: 120px; height: 120px; object-fit: cover; /* Increased size */
-        border: 5px solid #0056b3; /* Darker blue border */
-        display: block; margin: 0 auto 30px auto; /* Increased margin */
+    <!-- School Logo Image (Interactive Element) -->
+    <img src="images/school-logo.jpg" alt="St. Teresa School Logo" id="schoolLogo"
+        class="interactive-logo"
+        onerror="this.onerror=null; this.src='https://placehold.co/120x120/0056b3/ffffff?text=STS+Logo';"
+        style="width: 120px; height: 120px; object-fit: cover;
+        border: 5px solid #0056b3; 
+        display: block; margin: 0 auto 30px auto;
         box-sizing: border-box; border-radius: 50%;"> 
+
+    <!-- Interactive Quote Box: Toggles on logo click -->
+    <div id="quoteBox">
+        <p style="margin: 0; font-size: 18px; font-weight: bold;">"Character, Competence, and Compassion."</p>
+        <p style="margin-top: 5px; font-size: 14px;">— Our Core Mission</p>
+    </div>
         
-    <hr style="border:3px #0056b3 solid; width:90%;"> <!-- Slightly thicker HR -->
+    <hr style="border:3px #0056b3 solid; width:90%;">
     
-    <!-- Introduction Title: Improved background contrast -->
-    <p style="text-align: center; 
-        color: #001F3F; /* Darker Navy text for max contrast */
-        /* Enhanced: More saturated light blue background */
-        background-color: #8DC4FF; 
-        font-family: 'Georgia', serif; 
-        font-size: 30px; 
-        margin:30px auto 20px auto; /* Adjusted top margin */
-        padding: 12px 30px; /* Adjusted padding */
-        border-radius: 8px;
-        width: fit-content;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);">
+    <!-- Introduction Title: NOW USING CLASS for consistent interactivity -->
+    <p class="section-title introduction-title">
         Introduction:-
     </p>
     
-    <!-- Welcome Message -->
-    <p style="text-align: center; 
-        color: #003366; /* Darker Blue text */
-        background-color: #CCEEFF; /* Pale Blue background */
-        font-family: 'Georgia', serif; 
-        font-size: 30px; 
-        margin: 20px auto; /* Adjusted margin */
-        padding: 10px 30px; 
-        border-radius: 8px;
-        width: fit-content;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"> Welcome to St Teresa's School, Berhampore</p>
+    <!-- Welcome Message: NOW USING CLASS for consistent interactivity -->
+    <p class="section-title welcome-message"> Welcome to St Teresa's School, Berhampore</p>
         
-    <!-- Main Description Block: Added subtle border and increased readability margin -->
-    <p style="text-align: justify; /* Justify text for a more formal look */
-        color: #001F3F; /* Very dark blue/navy text */
-        background-color: #FFFFFF; /* White background for clean readability */
-        font-family: 'Georgia', serif; 
-        font-size: 20px; 
-        margin:20px 80px; /* Increased side margin for better readability on desktop */
-        padding: 25px 35px; /* Increased padding */
-        border-radius: 12px; 
-        line-height:1.7; /* Increased line-height for better flow */
-        border: 1px solid #D0D0D0; /* Subtle border to frame content */
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);">
+    <!-- Main Description Block (now using a class) -->
+    <div class="description-block">
         St Teresa’s School, Berhampore, is a leading Catholic English Medium Educational
         Institution dedicated to fostering holistic development
         in boys and girls. Established in 2015, the school is owned and managed by the Teresian Carmelite Sisters (CTC),
@@ -126,37 +238,50 @@
         
         <!-- School Building Image -->
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWAV89Xa01UAz3bTKxOpY0VmpAc8n23jvIDA&s" alt="St. Teresa School Image" 
-            style="width: 100%; max-width: 450px; height: auto; /* Increased max width */
+            onerror="this.onerror=null; this.src='https://placehold.co/450x250/001F3F/FFFFFF?text=School+Building+View';"
+            style="width: 100%; max-width: 450px; height: auto; 
             object-fit: cover; 
-            border: 3px solid #0056b3; /* Dark blue border */
-            display: block; margin:25px auto; /* Adjusted margin */
+            border: 3px solid #0056b3; 
+            display: block; margin:25px auto; 
             border-radius: 10px;">
-    </p>
+    </div>
     
-    <hr style="border:3px #0056b3 solid; width:80%;"> <!-- Slightly thicker HR -->
+    <hr style="border:3px #0056b3 solid; width:80%;">
     
-    <!-- Explore Section Header -->
+    <!-- Explore Section Header: NOW USING CLASS for consistent interactivity -->
     <div style="margin-top: 40px; text-align: center;">
-        <p style="text-align: center; 
-            color: #FFFFFF; /* White text */
-            background-color: #004080; /* Very Dark Blue */
-            font-size: 30px;
-            margin-bottom: 20px;
-            padding: 12px 40px; /* Increased padding */
-            border-radius: 10px;
-            width: fit-content;
-            margin:20px auto;
-            font-family: 'Cinzel', serif;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.35);"> <!-- Stronger Shadow -->
+        <p class="section-title explore-header">
             Explore our website:
         </p>
     </div>
     
     <!-- Navigation Links -->
     <div style="text-align: center; margin-bottom: 50px;">
-        <a href="about-us.html" class="navigation-menu">About Us</a>
-        <a href="department-of-teachers.html" class="navigation-menu">Departments</a>
+        <a href="About-us.html" class="navigation-menu">About Us</a>
+        <a href="Department-of-teachers.html" class="navigation-menu">Departments</a>
     </div>
+
+    <script>
+        const schoolLogo = document.getElementById('schoolLogo');
+        const quoteBox = document.getElementById('quoteBox');
+
+        /**
+         * Toggles the visibility and animation of the inspirational quote box.
+         */
+        function toggleQuote() {
+            quoteBox.classList.toggle('visible');
+            
+            // Log the action instead of using alert() for better user experience
+            if (quoteBox.classList.contains('visible')) {
+                console.log('Quote displayed: "Character, Competence, and Compassion."');
+            } else {
+                console.log('Quote hidden.');
+            }
+        }
+
+        // Add the click listener to the logo image
+        schoolLogo.addEventListener('click', toggleQuote);
+    </script>
 
 </body>
 

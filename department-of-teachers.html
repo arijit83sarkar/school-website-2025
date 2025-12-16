@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Department of Teachers</title>
+    <title>Department of Teachers - Interactive Directory</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Inter and Cormorant Garamond for a modern yet authentic look -->
@@ -19,7 +19,7 @@
             font-family: 'Cormorant Garamond', serif;
         }
 
-        /* --- Custom CSS for the Glowing Navigation Button --- */
+        /* --- Custom CSS for the Glowing Navigation Button (Retained) --- */
         .nav-button {
             /* Base style: 3D box structure */
             padding: 14px 30px;
@@ -52,43 +52,82 @@
                 0 0 25px 8px rgba(0, 105, 217, 0.9); 
         }
 
-        /* Table alternating rows - Enhanced Contrast */
+        /* Table alternating rows - Enhanced Contrast (Retained) */
         .table-row-odd {
-            background-color: #FFFFFF; /* Pure white for high contrast */
+            background-color: #FFFFFF;
         }
         .table-row-even {
-            background-color: #E6F0F8; /* Stronger light blue for better differentiation */
+            background-color: #E6F0F8;
+        }
+
+        /* Modern input focus effect */
+        .input-focus:focus {
+            box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.5); /* blue-500 shadow */
+            border-color: #3b82f6; /* blue-500 border */
         }
     </style>
 </head>
 
 <body class="bg-blue-50 min-h-screen p-4 sm:p-8">
     
-    <!-- Main Content Container with Border -->
-    <div class="max-w-6xl mx-auto border-4 border-blue-800 bg-white shadow-2xl rounded-xl p-4 sm:p-8">
+    <!-- Main Content Container with Modern Shadow and Border -->
+    <div class="max-w-6xl mx-auto border-4 border-blue-900 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] rounded-xl p-4 sm:p-10">
         
         <!-- Department Header (High Contrast Title) -->
         <header class="text-center mb-10">
-            <h1 class="inline-block px-8 py-3 bg-slate-800 text-white font-serif-cormorant font-bold text-3xl sm:text-4xl rounded-lg shadow-xl">
-                Departments & Staff
+            <h1 class="inline-block px-8 py-3 bg-slate-800 text-yellow-100 font-serif-cormorant font-bold text-3xl sm:text-5xl rounded-lg shadow-2xl tracking-wide">
+                School Directory
             </h1>
+            <p class="mt-2 text-gray-500 text-lg">Staff, Departments & Activities</p>
         </header>
 
-        <!-- Principal Section -->
-        <section class="text-center my-8 p-6 bg-blue-50 rounded-xl shadow-lg border border-blue-200">
-            <h2 class="text-2xl sm:text-3xl font-serif-cormorant text-blue-900 mb-4">
-                Principal of our school: Sister Jessy
-            </h2>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIuc0NlzNeHneKWq4wk42LqLZwVnPYCNo7RA&s"
-                alt="Principal of our school image" 
-                class="w-32 h-40 object-cover border-4 border-yellow-700 rounded-lg mx-auto shadow-md"
-            >
+        <!-- Principal Section - Modern Card Style -->
+        <section class="text-center my-10 p-8 bg-gradient-to-r from-blue-500 to-blue-700 rounded-2xl shadow-2xl transform hover:scale-[1.01] transition duration-300 ease-in-out">
+            <div class="flex flex-col sm:flex-row items-center justify-center">
+                <!-- Image Container -->
+                <div class="mb-4 sm:mb-0 sm:mr-6 relative">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIuc0NlzNeHneKWq4wk42LqLZwVnPYCNo7RA&s"
+                        alt="Principal of our school image" 
+                        class="w-32 h-40 object-cover border-4 border-yellow-300 rounded-full mx-auto shadow-xl"
+                        onerror="this.onerror=null; this.src='https://placehold.co/128x160/FCD34D/374151?text=Principal';"
+                    >
+                    <!-- Small badge for role -->
+                    <span class="absolute bottom-0 right-0 bg-yellow-300 text-blue-900 font-bold px-2 py-1 text-xs rounded-full shadow-md -translate-x-1 translate-y-1">HEAD</span>
+                </div>
+                
+                <!-- Text Content -->
+                <div class="text-white">
+                    <h2 class="text-3xl sm:text-4xl font-serif-cormorant font-bold mb-2">
+                        Sister Jessy
+                    </h2>
+                    <p class="text-xl font-light italic">
+                        Principal of our Institution
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <hr class="border-t-4 border-double border-yellow-700 w-11/12 mx-auto my-8">
+        <hr class="border-t-4 border-double border-blue-300 w-11/12 mx-auto my-12">
+        
+        <!-- Interactive Search Bar -->
+        <div class="mb-8 p-4 bg-gray-100 rounded-lg shadow-inner">
+            <label for="staffSearchInput" class="block text-lg font-semibold text-gray-700 mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                Search Staff or Department (e.g., 'Math', 'Soumi')
+            </label>
+            <input 
+                type="text" 
+                id="staffSearchInput" 
+                placeholder="Start typing to filter results across all tables..."
+                onkeyup="filterStaffTables()"
+                class="w-full p-3 border border-gray-300 rounded-lg input-focus transition duration-150"
+            >
+        </div>
 
-        <!-- Title for Major Subjects (Enhanced Contrast: Blue-800) -->
-        <div class="text-center my-6">
+        <!-- Title for Major Subjects -->
+        <div class="text-center my-8">
             <p class="inline-block px-8 py-2 bg-blue-800 text-white font-serif text-2xl sm:text-3xl rounded-lg shadow-md">
                 Major Subjects
             </p>
@@ -98,12 +137,12 @@
         <div class="overflow-x-auto mb-12">
             <table class="w-full text-sm sm:text-base border-4 border-blue-900 bg-white rounded-lg shadow-xl text-left table-auto">
                 <thead>
-                    <tr class="bg-blue-700 text-white text-center">
-                        <th class="p-4 border-2 border-blue-900 font-semibold w-1/3">Subjects/Departments</th>
-                        <th class="p-4 border-2 border-blue-900 font-semibold w-2/3">Teachers</th>
+                    <tr class="bg-blue-700 text-yellow-100 text-center">
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-1/3 rounded-tl-md">Subjects/Departments</th>
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-2/3 rounded-tr-md">Teachers</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="majorTableBody">
                     <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
                         <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Computer</th>
                         <td class="p-3 border border-gray-400 text-left text-gray-700">Soumyajeet Sarkar, Souma Ghosh</td>
@@ -148,10 +187,10 @@
             </table>
         </div>
 
-        <hr class="border-t-4 border-double border-yellow-700 w-11/12 mx-auto my-8">
+        <hr class="border-t-4 border-double border-blue-300 w-11/12 mx-auto my-12">
 
-        <!-- Title for Minor Subjects (Enhanced Contrast: Blue-800) -->
-        <div class="text-center my-6">
+        <!-- Title for Minor Subjects -->
+        <div class="text-center my-8">
             <p class="inline-block px-8 py-2 bg-blue-800 text-white font-serif text-2xl sm:text-3xl rounded-lg shadow-md">
                 Minor Subjects
             </p>
@@ -161,12 +200,12 @@
         <div class="overflow-x-auto mb-12">
             <table class="w-full text-sm sm:text-base border-4 border-blue-900 bg-white rounded-lg shadow-xl text-left table-auto">
                 <thead>
-                    <tr class="bg-blue-700 text-white text-center">
-                        <th class="p-4 border-2 border-blue-900 font-semibold w-1/3">Subjects/Departments</th>
-                        <th class="p-4 border-2 border-blue-900 font-semibold w-2/3">Teachers</th>
+                    <tr class="bg-blue-700 text-yellow-100 text-center">
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-1/3 rounded-tl-md">Subjects/Departments</th>
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-2/3 rounded-tr-md">Teachers</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="minorTableBody">
                     <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
                         <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">3rd Language</th>
                         <td class="p-3 border border-gray-400 text-left text-gray-700">Amrita Tirkey (Hindi), Sumanta Banerje (Bengali)</td>
@@ -183,10 +222,10 @@
             </table>
         </div>
 
-        <hr class="border-t-4 border-double border-yellow-700 w-11/12 mx-auto my-8">
+        <hr class="border-t-4 border-double border-blue-300 w-11/12 mx-auto my-12">
 
-        <!-- Title for Extra-curricular (Enhanced Contrast: Blue-800) -->
-        <div class="text-center my-6">
+        <!-- Title for Extra-curricular -->
+        <div class="text-center my-8">
             <p class="inline-block px-8 py-2 bg-blue-800 text-white font-serif text-2xl sm:text-3xl rounded-lg shadow-md">
                 Extra-curricular Activities
             </p>
@@ -196,12 +235,12 @@
         <div class="overflow-x-auto mb-12">
             <table class="w-full text-sm sm:text-base border-4 border-blue-900 bg-white rounded-lg shadow-xl text-left table-auto">
                 <thead>
-                    <tr class="bg-blue-700 text-white text-center">
-                        <th class="p-4 border-2 border-blue-900 font-semibold w-1/3">Activity/Department</th>
-                        <th class="p-4 border-2 border-blue-900 font-semibold w-2/3">Teachers</th>
+                    <tr class="bg-blue-700 text-yellow-100 text-center">
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-1/3 rounded-tl-md">Activity/Department</th>
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-2/3 rounded-tr-md">Teachers</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="extraTableBody">
                     <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
                         <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">SUPW (Socially Useful Productive Work)</th>
                         <td class="p-3 border border-gray-400 text-left text-gray-700">Sanimesh Baskey</td>
@@ -222,10 +261,10 @@
             </table>
         </div>
         
-        <hr class="border-t-4 border-double border-yellow-700 w-11/12 mx-auto my-8">
+        <hr class="border-t-4 border-double border-blue-300 w-11/12 mx-auto my-12">
 
-        <!-- Title for Office Staff (Enhanced Contrast: Blue-800) -->
-        <div class="text-center my-6">
+        <!-- Title for Office Staff -->
+        <div class="text-center my-8">
             <p class="inline-block px-8 py-2 bg-blue-800 text-white font-serif text-2xl sm:text-3xl rounded-lg shadow-md">
                 Office Staff
             </p>
@@ -235,12 +274,12 @@
         <div class="overflow-x-auto mb-12">
             <table class="w-full text-sm sm:text-base border-4 border-blue-900 bg-white rounded-lg shadow-xl text-left table-auto">
                 <thead>
-                    <tr class="bg-blue-700 text-white text-center">
-                        <th class="p-4 border-2 border-blue-900 font-semibold w-1/3">Role</th>
-                        <th class="p-4 border-2 border-blue-900 font-semibold w-2/3">Staff Members</th>
+                    <tr class="bg-blue-700 text-yellow-100 text-center">
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-1/3 rounded-tl-md">Role</th>
+                        <th class="p-4 border-2 border-blue-900 font-semibold w-2/3 rounded-tr-md">Staff Members</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="officeTableBody">
                     <tr class="table-row-odd hover:bg-blue-100 transition duration-150">
                         <th class="p-3 border border-gray-400 text-left font-semibold text-gray-800">Office-staff</th>
                         <td class="p-3 border border-gray-400 text-left text-gray-700">Julias Hasda, Satabdi Roy</td>
@@ -251,9 +290,69 @@
         
         <!-- Back to Home Link with Glowing Button Style -->
         <a href="index.html" class="nav-button text-2xl">
-            Back to the home page
+            Back to the Home Page
         </a>
 
     </div>
+
+    <!-- JavaScript for Interactive Filtering -->
+    <script>
+        function filterStaffTables() {
+            const input = document.getElementById('staffSearchInput');
+            const filter = input.value.toUpperCase();
+            
+            // Collect all table body IDs
+            const tableBodyIds = ['majorTableBody', 'minorTableBody', 'extraTableBody', 'officeTableBody'];
+
+            tableBodyIds.forEach(id => {
+                const tbody = document.getElementById(id);
+                if (tbody) {
+                    const rows = tbody.getElementsByTagName('tr');
+                    let rowCount = 0; // Use a counter to re-apply zebra stripping on visible rows
+
+                    for (let i = 0; i < rows.length; i++) {
+                        const row = rows[i];
+                        // Get all <th> and <td> elements in the row
+                        const cells = row.getElementsByTagName('th');
+                        const dataCells = row.getElementsByTagName('td');
+                        
+                        let textValue = '';
+                        
+                        // Combine text from both columns
+                        if (cells.length > 0) {
+                            textValue += cells[0].textContent || cells[0].innerText;
+                        }
+                        if (dataCells.length > 0) {
+                            textValue += ' ' + (dataCells[0].textContent || dataCells[0].innerText);
+                        }
+
+                        // Check if the row content matches the filter
+                        if (textValue.toUpperCase().indexOf(filter) > -1) {
+                            row.style.display = '';
+                            
+                            // Re-apply alternating row colors based on the new visible index
+                            row.classList.remove('table-row-odd', 'table-row-even');
+                            if (rowCount % 2 === 0) {
+                                row.classList.add('table-row-odd');
+                            } else {
+                                row.classList.add('table-row-even');
+                            }
+                            rowCount++;
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    }
+                }
+            });
+        }
+
+        // Add event listener for better performance (though onkeyup works fine too)
+        document.addEventListener('DOMContentLoaded', () => {
+             const input = document.getElementById('staffSearchInput');
+             if (input) {
+                 input.addEventListener('input', filterStaffTables);
+             }
+        });
+    </script>
 </body>
 </html>

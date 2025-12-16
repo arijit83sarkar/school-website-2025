@@ -6,77 +6,86 @@
     <title>About St. Teresa's School</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Fonts for Authentic/Academic Style: EB Garamond (Serif), Georgia (for headings) -->
+    <!-- Load Fonts for Authentic/Academic Style -->
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet">
     
     <script>
+        // Tailwind Configuration with Custom Colors and Fonts
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['EB Garamond', 'serif'], // Primary body font
-                        serif: ['Georgia', 'serif'],   // Secondary/Header font
+                        serif: ['Georgia', 'serif'],   // Secondary/Header font
                     },
-                    // Define colors matching the project's existing palette (Deep Blue and Gold)
+                    // Define colors matching the project's existing palette
                     colors: {
-                        'background-base': '#f0f8ff',      // Very Light Azure/Light Blue base
-                        'primary-dark': '#0A296C',         // Deep Navy Blue (for high contrast text/banners)
-                        'accent-gold': '#DFBD16',          // Distinct Gold/Yellow (for accents)
-                        'box-border-blue': '#22639b',      // Medium Blue for container borders
+                        'background-base': '#e6f0ff',      // Very Light Blue base for subtle background
+                        'primary-dark': '#0A296C',         // Deep Navy Blue
+                        'accent-gold': '#DFBD16',          // Distinct Gold/Yellow
+                        'box-border-blue': '#22639b',      // Medium Blue for container borders
+                    },
+                    keyframes: {
+                        // Keyframe for a subtle pulse/glow effect
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(223, 189, 22, 0.5)' },
+                            '50%': { boxShadow: '0 0 10px 5px rgba(223, 189, 22, 0.7)' },
+                        }
+                    },
+                    animation: {
+                        'gold-pulse': 'pulseGlow 2.5s infinite',
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Custom Glowing Link Style (Deep Blue glow on light background) */
+        /* Custom Glowing Link Style (Now using utility classes primarily, but retaining custom hover effects) */
         .glowing-link {
-            transition: all 0.3s ease;
-            background-color: #0A296C; /* Deep Navy base color */
-            color: #ffffff;
-            border: 2px solid #DFBD16; /* Gold border */
-            box-shadow: 0 0 10px rgba(10, 41, 108, 0.4); /* Subtle initial navy glow */
+            transition: all 0.3s ease-in-out;
+            /* Tailwind classes cover initial look: bg-primary-dark text-white border-2 border-accent-gold shadow-lg */
         }
         .glowing-link:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-2px);
             background-color: #1a4295;
             /* Stronger deep blue glow on hover */
-            box-shadow: 0 0 20px rgba(10, 41, 108, 0.8), 0 0 30px rgba(10, 41, 108, 0.6);
+            box-shadow: 0 5px 20px rgba(10, 41, 108, 0.8), 0 0 30px rgba(10, 41, 108, 0.6);
         }
-        /* Main Content Container */
-        .main-container {
-            background-color: #ffffff; /* White interior for maximum contrast */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+        /* 3D Tilt Effect for Images */
+        .img-tilt {
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+            transform-style: preserve-3d;
         }
-        /* Style for text content boxes (Academic/Formal Look) */
-        .text-box {
-            border-left: 5px solid #DFBD16; /* Gold accent border */
-            background-color: #fcfcfc; /* Very light tint */
-            line-height: 1.75;
+        .img-tilt:hover {
+            transform: scale(1.05) rotateX(2deg) rotateY(2deg) translateZ(10px);
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5), -10px -10px 30px rgba(0, 0, 0, 0.5);
         }
-        /* Anthem Box styling */
-        .anthem-box {
-            border: 2px solid #0A296C;
-            background-color: #e6f0ff; /* Very light blue background */
-            font-family: 'EB Garamond', serif;
-            font-weight: 500;
+
+        /* Hover effect for Text Boxes (Lift and Gold Border Shift) */
+        .text-box:hover {
+            transform: translateY(-5px);
+            border-left-color: #0A296C; /* Shift border color to Navy on hover */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
-<body class="bg-background-base min-h-screen p-4 sm:p-8 font-sans text-primary-dark">
+<body class="bg-background-base min-h-screen p-4 sm:p-8 font-sans text-primary-dark antialiased">
 
     <!-- Main Content Container with Border and Shadow -->
-    <div class="max-w-4xl mx-auto main-container rounded-xl p-6 md:p-10 border-4 border-box-border-blue">
+    <div class="max-w-4xl mx-auto bg-white rounded-xl p-6 md:p-10 border-4 border-box-border-blue shadow-2xl">
 
-        <!-- Main Title (Gold text on Deep Navy Banner) -->
-        <p class="text-center text-4xl sm:text-5xl font-extrabold font-serif text-accent-gold bg-primary-dark py-4 px-6 rounded-lg mb-8 shadow-xl mx-auto w-fit">
+        <!-- Main Title (Gold text on Deep Navy Banner with ADVANCED INTERACTIVITY) -->
+        <p class="text-center text-4xl sm:text-5xl font-extrabold font-serif text-accent-gold bg-primary-dark py-4 px-6 rounded-lg mb-8 shadow-xl mx-auto w-fit 
+                transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(223,189,22,0.8)] hover:bg-[#1a4295] cursor-default">
             About St. Teresa's School
         </p>
 
-        <!-- Subtitle/Motto Container (Dark text on light background) -->
+        <!-- Subtitle/Motto Container -->
         <div class="text-center mb-10">
-            <p class="text-2xl sm:text-3xl font-serif text-primary-dark bg-gray-100 py-2 px-6 rounded-lg mx-auto w-fit mb-4 shadow-sm border-b-2 border-accent-gold">
+            <p class="text-2xl sm:text-3xl font-serif text-primary-dark bg-gray-100 py-2 px-6 rounded-lg mx-auto w-fit mb-4 shadow-md border-b-2 border-accent-gold 
+                    transition-colors duration-200 hover:bg-yellow-50">
                 St. Teresa’s School, Berhampore: An Institution of Excellence
             </p>
             <p class="text-xl text-primary-dark font-bold tracking-wider">
@@ -86,8 +95,8 @@
 
         <hr class="border-t border-gray-300 w-4/5 mx-auto mb-8">
 
-        <!-- School Introduction TEXT BOX (Academic Text) -->
-        <div class="text-box rounded-lg p-5 mb-8 shadow-md">
+        <!-- School Introduction TEXT BOX (Academic Text with INTERACTIVE LIFT) -->
+        <div class="text-box rounded-lg p-5 mb-8 shadow-md border-l-8 border-accent-gold transition-all duration-300">
             <p class="text-lg text-justify">
                 St. Teresa’s School, Berhampore, is a prestigious Catholic English Medium Educational Institution. 
                 This co-educational establishment, catering to both boys and girls, was founded in 2015. The school is owned and managed by the Teresian Carmelite
@@ -101,30 +110,31 @@
             </p>
         </div>
 
-        <!-- School Image -->
+        <!-- School Image (ADVANCED 3D TILT INTERACTIVITY) -->
         <div class="flex justify-center mb-10">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWAV89Xa01UAz3bTKxOpY0VmpAc8n23jvIDA&s" 
                 onerror="this.onerror=null;this.src='https://placehold.co/320x192/0A296C/ffffff?text=School+Building+Placeholder';"
                 alt="St. Teresa School Image" 
-                class="w-80 h-48 object-cover rounded-xl border-4 border-accent-gold shadow-xl">
+                class="w-80 h-48 object-cover rounded-xl border-4 border-accent-gold shadow-xl cursor-pointer img-tilt">
         </div>
 
         <hr class="border-t border-gray-300 w-11/12 mx-auto mb-8">
 
-        <!-- The Beginning Section Title -->
+        <!-- The Beginning Section Title (Interactive Sub-Heading) -->
         <div class="text-center mb-6">
-            <p class="text-2xl sm:text-3xl font-serif text-primary-dark bg-gray-100 py-2 px-6 rounded-lg mx-auto w-fit shadow-md border-b-2 border-primary-dark">
+            <p class="text-2xl sm:text-3xl font-serif text-primary-dark bg-gray-100 py-2 px-6 rounded-lg mx-auto w-fit shadow-md border-b-2 border-primary-dark
+                    transition-colors duration-200 hover:text-accent-gold hover:border-accent-gold">
                 The Beginning
             </p>
         </div>
 
-        <!-- St Teresa of Avila Section -->
+        <!-- St Teresa of Avila Section Title -->
         <div class="text-center mb-8">
-            <p class="text-xl sm:text-2xl text-box-border-blue font-bold font-serif mb-4">
+            <p class="text-xl sm:text-2xl text-box-border-blue font-bold font-serif mb-4 transition-colors duration-200 hover:text-accent-gold">
                 St Teresa of Avila: The teacher of prayer and the Doctor of the Church
             </p>
-            <!-- St Teresa of Avila TEXT BOX -->
-            <div class="text-box rounded-lg p-5 shadow-md">
+            <!-- St Teresa of Avila TEXT BOX (Interactive Lift) -->
+            <div class="text-box rounded-lg p-5 shadow-md border-l-8 border-accent-gold transition-all duration-300">
                 <p class="text-lg text-justify">
                     St Teresa of Avila also called St Teresa of Jesus was born at Avila, Spain on 28 March 1515 in a very noble
                     family of knights. As she grew up as a teenager in the boarding school of Augustinian nuns, she had the inspiration to follow the religious life. Overcoming all
@@ -137,23 +147,23 @@
             </div>
         </div>
 
-        <!-- St. Teresa of Avila Image -->
+        <!-- St. Teresa of Avila Image (ADVANCED 3D TILT INTERACTIVITY) -->
         <div class="flex justify-center mb-10">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeaK6On6y-b_hu5BwqsW3Z336-3GYHpdwtlw&s" 
                 onerror="this.onerror=null;this.src='https://placehold.co/186x240/0A296C/ffffff?text=St.+Teresa+of+Avila';"
                 alt="St. Teresa of Avila" 
-                class="w-48 h-64 object-cover rounded-xl border-4 border-accent-gold shadow-xl">
+                class="w-48 h-64 object-cover rounded-xl border-4 border-accent-gold shadow-xl cursor-pointer img-tilt">
         </div>
 
         <hr class="border-t border-gray-300 w-3/5 mx-auto mb-8">
 
-        <!-- Servant of God Rev Mother Eliswa Section -->
+        <!-- Servant of God Rev Mother Eliswa Section Title -->
         <div class="text-center mb-8">
-            <p class="text-xl sm:text-2xl text-box-border-blue font-bold font-serif mb-4">
+            <p class="text-xl sm:text-2xl text-box-border-blue font-bold font-serif mb-4 transition-colors duration-200 hover:text-accent-gold">
                 Servant of God Rev Mother Eliswa
             </p>
-            <!-- Rev Mother Eliswa TEXT BOX -->
-            <div class="text-box rounded-lg p-5 shadow-md">
+            <!-- Rev Mother Eliswa TEXT BOX (Interactive Lift) -->
+            <div class="text-box rounded-lg p-5 shadow-md border-l-8 border-accent-gold transition-all duration-300">
                 <p class="text-lg text-justify">
                     13 February 1866: Rev Mother Eliswa from Verapoly, Kerala, India, founded the religious institute, the
                     Congregation of Teresian Carmelite (CTC).
@@ -168,25 +178,27 @@
             </div>
         </div>
         
-        <!-- Rev Mother Eliswa Image -->
+        <!-- Rev Mother Eliswa Image (ADVANCED 3D TILT INTERACTIVITY) -->
         <div class="flex justify-center mb-10">
             <img src="https://ccbi.in/wp-content/uploads/2023/11/MotherEliswa.jpg" 
                 onerror="this.onerror=null;this.src='https://placehold.co/180x240/0A296C/ffffff?text=Mother+Eliswa';"
                 alt="Rev Mother Eliswa" 
-                class="w-44 h-64 object-cover rounded-xl border-4 border-accent-gold shadow-xl">
+                class="w-44 h-64 object-cover rounded-xl border-4 border-accent-gold shadow-xl cursor-pointer img-tilt">
         </div>
 
         <hr class="border-t border-gray-300 w-3/5 mx-auto mb-8">
 
-        <!-- School Anthem Section -->
+        <!-- School Anthem Section (Interactive Sub-Heading) -->
         <div class="text-center mb-10">
-            <p class="text-2xl sm:text-3xl font-serif text-primary-dark bg-gray-100 py-2 px-6 rounded-lg mx-auto w-fit mb-6 shadow-md border-b-2 border-primary-dark">
+            <p class="text-2xl sm:text-3xl font-serif text-primary-dark bg-gray-100 py-2 px-6 rounded-lg mx-auto w-fit mb-6 shadow-md border-b-2 border-primary-dark
+                    transition-colors duration-200 hover:text-accent-gold hover:border-accent-gold">
                 SCHOOL ANTHEM
             </p>
-            <!-- Anthem TEXT BOX (Primary Dark text on a light background) -->
-            <div class="anthem-box text-lg md:text-xl py-4 px-6 rounded-xl mx-auto w-fit max-w-full leading-relaxed shadow-lg">
-                <p class="text-center">
-                    <span class="text-2xl text-accent-gold font-bold font-serif">Chorus:</span><br>
+            <!-- Anthem TEXT BOX (Primary Dark text on a light background, with INTERACTIVE BORDER PULSE) -->
+            <div class="bg-[#e6f0ff] text-lg md:text-xl py-4 px-6 rounded-xl mx-auto w-fit max-w-full leading-relaxed shadow-lg border-2 border-primary-dark font-sans
+                        transition-all duration-500 hover:border-accent-gold hover:shadow-2xl hover:animate-gold-pulse">
+                <p class="text-center text-primary-dark">
+                    <span class="text-2xl text-accent-gold font-bold font-serif block mb-2">Chorus:</span>
                     St Teresa my Alma Mater<br>
                     A blessed home of mine,<br>
                     My dear school where I grow with time<br>
@@ -215,19 +227,20 @@
 
         <hr class="border-t border-gray-300 w-4/5 mx-auto mb-8">
 
-        <!-- Facilities Section -->
+        <!-- Facilities Section Title (Interactive Sub-Heading) -->
         <div class="text-center mb-8">
-            <p class="text-2xl text-box-border-blue font-bold font-serif mb-4">
+            <p class="text-2xl text-box-border-blue font-bold font-serif mb-4 transition-colors duration-200 hover:text-accent-gold">
                 Facilities provided in our school:
             </p>
-            <ul class="list-disc list-inside text-lg md:text-xl space-y-1 mx-auto w-fit text-left bg-gray-50 rounded-lg p-4 border border-gray-200 shadow-sm font-sans">
-                <li>Library</li>
-                <li>Chemistry Lab</li>
-                <li>Biology Lab</li>
-                <li>Physics Lab</li>
-                <li>Computer lab</li>
-                <li>Games facilities</li>
-                <li>Sports Room</li>
+            <ul class="list-disc list-inside text-lg md:text-xl space-y-2 mx-auto w-fit text-left bg-gray-50 rounded-lg p-4 border border-gray-200 shadow-md font-sans 
+                        transition-all duration-300 hover:bg-white hover:shadow-xl">
+                <li class="hover:text-primary-dark transition-colors duration-150">Library</li>
+                <li class="hover:text-primary-dark transition-colors duration-150">Chemistry Lab</li>
+                <li class="hover:text-primary-dark transition-colors duration-150">Biology Lab</li>
+                <li class="hover:text-primary-dark transition-colors duration-150">Physics Lab</li>
+                <li class="hover:text-primary-dark transition-colors duration-150">Computer lab</li>
+                <li class="hover:text-primary-dark transition-colors duration-150">Games facilities</li>
+                <li class="hover:text-primary-dark transition-colors duration-150">Sports Room</li>
             </ul>
         </div>
 
@@ -235,22 +248,23 @@
 
         <!-- Contact Details -->
         <div class="text-center pb-4">
-            <h3 class="text-2xl font-serif text-accent-gold font-bold mb-3">
+            <h3 class="text-2xl font-serif text-accent-gold font-bold mb-3 transition-colors duration-200 hover:text-primary-dark">
                 Contact Details:
             </h3>
             <p class="text-lg font-sans space-y-1">
-                Website: <a href="https://stteresaberhampore.org/" class="text-box-border-blue hover:text-accent-gold transition duration-150">https://stteresaberhampore.org/</a><br>
+                Website: <a href="https://stteresaberhampore.org/" class="text-box-border-blue hover:text-accent-gold transition duration-150 hover:underline">https://stteresaberhampore.org/</a><br>
                 Mobile : +91 99329 74647<br>
-                Email : <a href="mailto:stspanchanantala24ctc@gmail.com" class="text-box-border-blue hover:text-accent-gold transition duration-150">stspanchanantala24ctc@gmail.com</a><br>
+                Email : <a href="mailto:stspanchanantala24ctc@gmail.com" class="text-box-border-blue hover:text-accent-gold transition duration-150 hover:underline">stspanchanantala24ctc@gmail.com</a><br>
                 Address: Panchanantala, P.O.- Boaliadanga, P.S.- Berhampore, Dist.- Murshidabad, West Bengal - 742102.
             </p>
         </div>
 
         <hr class="border-t border-gray-300 w-4/5 mx-auto mb-6">
 
-        <!-- Navigation Link (Glowing Hyperlink) -->
+        <!-- Navigation Link (Glowing Hyperlink with INTERACTIVE LIFT) -->
         <div class="flex justify-center">
-            <a href="index.html" class="glowing-link inline-block text-xl font-serif py-3 px-8 rounded-xl shadow-lg font-semibold">
+            <a href="index.html" class="glowing-link inline-block text-xl font-serif py-3 px-8 rounded-xl shadow-lg font-semibold 
+                    bg-primary-dark text-white border-2 border-accent-gold">
                 Back to Home Page
             </a>
         </div>
