@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Passkey Login</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Fonts for Authentic/Academic Style: EB Garamond (Serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['EB Garamond', 'serif'], 
+                        serif: ['Georgia', 'serif'],
+                    },
+                    colors: {
+                        'background-base': '#f0f8ff',      // Very Light Azure/Light Blue base
+                        'primary-dark': '#0A296C',         // Deep Navy Blue
+                        'accent-gold': '#DFBD16',          // Distinct Gold/Yellow
+                        'box-border-blue': '#22639b',      // Medium Blue for containers
+                        'success-green': '#10b981',        // Emerald 500
+                        'error-red': '#ef4444',            // Red 500
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base button style */
+        .auth-btn {
+            @apply w-full py-3 rounded-xl font-bold transition duration-300 transform hover:scale-[1.02] shadow-lg;
+        }
+        /* Style for text content boxes */
+        .status-box {
+            border-left: 5px solid #DFBD16; /* Gold accent border */
+            background-color: #fcfcfc;
+            line-height: 1.5;
+        }
+        /* Main Container for the Portal */
+        .main-container {
+            background-color: #ffffff; /* White interior */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background-base min-h-screen p-4 flex items-center justify-center font-sans text-primary-dark">
+
+    <div class="max-w-md w-full main-container rounded-xl p-6 md:p-8 border-4 border-box-border-blue">
+
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-serif font-extrabold text-primary-dark mb-2">
+                Secure School Login
+            </h1>
+            <p class="text-lg text-gray-600">
+                Use your Passkey to sign in instantly and securely.
+            </p>
+        </div>
+
+        <!-- Authentication Form -->
+        <div id="auth-form">
+            <div class="mb-6">
+                <label for="email" class="block text-sm font-medium mb-2">Email / Username</label>
+                <input type="email" id="email" placeholder="school@stteresa.edu (Use this to register your Passkey)"
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-accent-gold focus:border-accent-gold"
+                       autocomplete="webauthn">
+            </div>
+            
+            <div class="space-y-4">
+                <button id="signInBtn" class="auth-btn bg-primary-dark text-white hover:bg-box-border-blue">
+                    Sign In with Passkey
+                </button>
+                <button id="registerBtn" class="auth-btn bg-accent-gold text-primary-dark hover:bg-yellow-500">
+                    Register New Passkey
+                </button>
+            </div>
+        </div>
+
+        <!-- Status Box -->
+        <div id="status" class="status-box rounded-lg p-4 mt-6 hidden">
+            <p class="font-bold mb-1">Status:</p>
+            <p id="statusMessage" class="text-sm"></p>
+        </div>
+    </div>
+
+    <script type="module">
+        // Fixed SyntaxError: Changed template strings (backticks) to static string literals (quotes) for imports.
+        const FIREBASE_VERSION = "11.11.0";
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.11.0/firebase-app.js";
+        import { 
+            getAuth, signInWithPasskey, createUserWithPasskey, 
+            onAuthStateChanged, signInWithCustomToken, signInAnonymously,
+            setPersistence, browserSessionPersistence
+        } from "https://www.gstatic.com/firebasejs/11.11.0/firebase-auth.js";
+        import { getFirestore, setLogLevel } from "https://www.gstatic.com/firebasejs/11.11.0/firebase-firestore.js";
+
+        // Global variables provided by the environment
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let auth, db;
+        const statusBox = document.getElementById('status');
+        const statusMessage = document.getElementById('statusMessage');
+        const emailInput = document.getElementById('email');
+        const signInBtn = document.getElementById('signInBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        
+        // --- Utility Functions ---
+
+        const showStatus = (message, isError = false) => {
+            statusMessage.textContent = message;
+            statusBox.classList.remove('hidden');
+            // Ensure all unnecessary border classes are removed before adding the correct one
+            statusBox.classList.remove('border-success-green', 'border-error-red', 'border-primary-dark');
+            statusBox.classList.add(isError ? 'border-error-red' : 'border-success-green');
+            statusMessage.classList.remove('text-success-green', 'text-error-red', 'text-primary-dark');
+            statusMessage.classList.add(isError ? 'text-error-red' : 'text-primary-dark');
+        };
+
+        const redirect = (user) => {
+            if (user) {
+                showStatus(`Authentication successful for User ID: ${user.uid}. Redirecting...`, false);
+                // Redirect user to the main site index page
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500); 
+            }
+        };
+
+        // --- Firebase Initialization and Auth Check ---
+
+        const initializeFirebase = async () => {
+            if (Object.keys(firebaseConfig).length === 0) {
+                showStatus("Firebase configuration is missing. Cannot initialize Passkey authentication.", true);
+                return;
+            }
+            try {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                
+                // Optional: Set log level for debugging
+                // setLogLevel('Debug');
+
+                // 1. Initial Sign-in check (using environment token)
+                await setPersistence(auth, browserSessionPersistence);
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    // Sign in anonymously if no token is available, maintaining the user session
+                    await signInAnonymously(auth);
+                }
+
+                // 2. Auth State Listener
+                // This listener runs immediately upon setup and whenever auth state changes.
+                onAuthStateChanged(auth, (user) => {
+                    if (user && user.isAnonymous === false) {
+                        // User is authenticated (not anonymous) -> Redirect
+                        redirect(user);
+                    } else {
+                        // User is either anonymous or signed out. Proceed to Passkey form.
+                        showStatus("Ready to sign in or register a new Passkey. Use the Register button first.", false);
+                        statusBox.classList.add('border-primary-dark');
+                    }
+                });
+
+            } catch (error) {
+                console.error("Firebase initialization or initial auth error:", error);
+                showStatus(`Initialization Error: ${error.message}`, true);
+            }
+        };
+
+        // --- Passkey Functions ---
+
+        const handleAuthAction = async (actionType) => {
+            const email = emailInput.value.trim();
+            if (!email) {
+                showStatus("Please enter your email or desired username.", true);
+                return;
+            }
+
+            // Disable buttons during action
+            signInBtn.disabled = true;
+            registerBtn.disabled = true;
+            showStatus(`Attempting ${actionType === 'register' ? 'Passkey Registration' : 'Sign In'} for ${email}...`);
+
+            try {
+                let userCredential;
+                if (actionType === 'register') {
+                    // This attempts to register a new user/passkey
+                    userCredential = await createUserWithPasskey(auth, email);
+                } else {
+                    // This attempts to sign in an existing user with their passkey
+                    userCredential = await signInWithPasskey(auth, email);
+                }
+
+                // If successful, onAuthStateChanged listener handles the redirect
+                if (userCredential && userCredential.user) {
+                    showStatus(`Passkey successful! Waiting for final authentication check...`);
+                }
+
+            } catch (error) {
+                console.error("Passkey Authentication Error:", error);
+                let message = error.message;
+
+                if (error.code === 'auth/passkey-cancelled') {
+                    message = "Passkey operation cancelled by the user.";
+                } else if (error.code === 'auth/credential-already-in-use') {
+                    message = "This Passkey is already registered to a different user. Try signing in.";
+                } else if (error.code === 'auth/user-not-found') {
+                    message = "No account found with this email. Please register a Passkey first.";
+                } else if (error.code === 'auth/unsupported-browser-or-device') {
+                    message = "Your device or browser does not support Passkeys (WebAuthn).";
+                } else {
+                    message = `Authentication failed: ${message}`;
+                }
+                
+                showStatus(message, true);
+
+            } finally {
+                // Re-enable buttons
+                signInBtn.disabled = false;
+                registerBtn.disabled = false;
+            }
+        };
+
+        // --- Event Listeners ---
+        signInBtn.addEventListener('click', () => handleAuthAction('signIn'));
+        registerBtn.addEventListener('click', () => handleAuthAction('register'));
+
+        // Start the application
+        initializeFirebase();
+
+    </script>
+</body>
+</html>
